@@ -2,45 +2,24 @@
 
 import React from "react";
 
-import { FormikProvider, useFormik } from "formik";
-import * as Yup from "yup";
+import { useFormik } from "formik";
 import styles from "./signup.module.css";
-import { useMutation } from "react-query";
-
-import axios from "axios";
-
-const DisplayingErrorMessagesSchema = Yup.object({
-  name: Yup.string()
-    .min(5, "Too Short!, at last 5 characters")
-    .max(50, "Too Long!, max 50 characters")
-    .required("first name is required"),
-  password: Yup.string()
-    .min(5, "Too Short!, at last 5 characters")
-    .max(50, "Too Long!, max 50 characters")
-    .required("password is required"),
-  passwordConfirm: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
-    .required("passwordConfirm is required"),
-  email: Yup.string().email("Invalid email").required("email is required"),
-});
+import signupValidationSchema from "./signupValidationSchema";
+import signupMutation from "../../utils/signupMutation";
 
 const page = () => {
-  const { mutate, isLoading, isError, isSuccess } = useMutation({
-    mutationFn: (user) => {
-      return axios.post("/api/auth/signup", user);
-    },
-  });
+  const { mutate, isLoading, isError, isSuccess, handleSubmit } =
+    signupMutation();
 
-  const formik = useFormik({
+  const { touched, errors, handleChange, values } = useFormik({
     initialValues: {
       name: "",
       email: "",
       password: "",
       passwordConfirm: "",
     },
-    validationSchema: DisplayingErrorMessagesSchema,
+    validationSchema: signupValidationSchema,
     onSubmit: async (values) => {
-      console.log(values);
       mutate(values);
     },
   });
@@ -51,18 +30,18 @@ const page = () => {
       {isError && <h1> Error</h1>}
       {isSuccess && <h1> DONE</h1>}
 
-      <form className={styles.form} onSubmit={formik.handleSubmit}>
-        <label htmlFor='firstName'> Name</label>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <label htmlFor='name'> Name</label>
         <input
           id='name'
           name='name'
           type='text'
-          onChange={formik.handleChange}
-          value={formik.values.name}
+          onChange={handleChange}
+          value={values.name}
         />
 
-        {formik.errors.name && (
-          <span className={styles.error}>{formik.errors.name}</span>
+        {touched.name && errors.name && (
+          <span className={styles.error}>{errors.name}</span>
         )}
 
         <label htmlFor='email'>Email Address</label>
@@ -70,11 +49,11 @@ const page = () => {
           id='email'
           name='email'
           type='email'
-          onChange={formik.handleChange}
-          value={formik.values.email}
+          onChange={handleChange}
+          value={values.email}
         />
 
-        {formik.errors.email && (
+        {touched.email && errors.email && (
           <span className={styles.error}>{formik.errors.email}</span>
         )}
 
@@ -83,11 +62,11 @@ const page = () => {
           id='password'
           name='password'
           type='password'
-          onChange={formik.handleChange}
-          value={formik.values.password}
+          onChange={handleChange}
+          value={values.password}
         />
-        {formik.errors.password && (
-          <span className={styles.error}>{formik.errors.password}</span>
+        {touched.password && errors.password && (
+          <span className={styles.error}>{errors.password}</span>
         )}
         <label htmlFor='passwordConfirm'>passwordConfirm</label>
 
@@ -95,11 +74,11 @@ const page = () => {
           id='passwordConfirm'
           name='passwordConfirm'
           type='password'
-          onChange={formik.handleChange}
-          value={formik.values.passwordConfirm}
+          onChange={handleChange}
+          value={values.passwordConfirm}
         />
-        {formik.errors.passwordConfirm && (
-          <span className={styles.error}>{formik.errors.passwordConfirm}</span>
+        {touched.passwordConfirm && errors.passwordConfirm && (
+          <span className={styles.error}>{errors.passwordConfirm}</span>
         )}
 
         <button type='submit'>Submit</button>
