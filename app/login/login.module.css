@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+  text-align: center;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  color: red;
+  font-weight: 700;
+}

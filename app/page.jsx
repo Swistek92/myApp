@@ -1,3 +1,80 @@
+import "./mainStyles.css";
+
+import styles from "./page.module.css";
 export default function Page() {
-  return <h1>Hello, Next.js!</h1>;
+  return (
+    <div className={styles.main}>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+      <h1>asdasd</h1>
+    </div>
+  );
 }

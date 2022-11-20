@@ -1,0 +1,130 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: white;
+  transition: all 3s;
+  position: fixed;
+  width: 100%;
+  height: fit-content;
+}
+
+.brandName {
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  cursor: e-resize;
+  animation: rainbow 1s ease forwards infinite alternate;
+}
+
+.links ul {
+  display: flex;
+}
+
+.links li a {
+  cursor: pointer;
+  padding: 1rem;
+  display: block;
+}
+
+.links li:hover {
+  background-color: #333;
+  animation: weight 1s ease;
+}
+
+.toggleBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggleBtn .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .toggleBtn {
+    display: flex;
+    cursor: pointer;
+  }
+  .links {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .links li {
+    text-align: center;
+  }
+  .links li a {
+    padding: 0.5rem;
+    /* font-weight: 900; */
+  }
+
+  .links li a:hover {
+    animation: weight 1s ease;
+  }
+  .links[required] {
+    display: flex;
+    animation: top-to-down 1s ease forwards;
+  }
+}
+
+@keyframes weight {
+  100% {
+    font-weight: 900;
+  }
+}
+
+@keyframes top-to-down {
+  0% {
+    background-color: #555;
+    color: black;
+  }
+
+  100% {
+    background-color: #000;
+    color: white;
+  }
+}
+
+@keyframes rainbow {
+  100% {
+    opacity: 0;
+    color: white;
+  }
+  80% {
+    color: orange;
+  }
+  60% {
+    color: yellow;
+  }
+  40% {
+    color: green;
+  }
+  20% {
+    color: blue;
+  }
+
+  0% {
+    opacity: 1;
+    color: purple;
+  }
+}
