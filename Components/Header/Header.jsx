@@ -7,22 +7,21 @@ import styles from "./Header.module.css";
 const Header = () => {
   const [show, setShow] = useState(false);
 
+  const toggleMenu = () => setShow((prev) => !prev);
+  const closeMenu = () => setShow(false);
+
   return (
     <>
       <nav className={styles.navbar}>
         <div className={styles.brandName}> brand name</div>
-        <a
-          href='#'
-          className={styles.toggleBtn}
-          onClick={() => setShow((prev) => !prev)}
-        >
+        <a href='#' className={styles.toggleBtn} onClick={() => toggleMenu()}>
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
         </a>
 
         <div className={styles.links} required={show}>
-          <ul>
+          <ul onClick={() => closeMenu()}>
             <li>
               <Link href='/'> Home</Link>
             </li>
@@ -33,7 +32,7 @@ const Header = () => {
               <Link href='/contact'> Contact</Link>
             </li>
             <li>
-              <Link href='/login'> auth</Link>
+              <Link href='/signup'> auth</Link>
             </li>
           </ul>
         </div>
