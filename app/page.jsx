@@ -3,7 +3,7 @@ import Image from "next/image";
 import ja from "../public/ja.jpg";
 import styles from "./page.module.css";
 import Loading from "./Loading";
-import sunrise from "../public/sunrise.JPG";
+import sunrise from "../public/aba.JPG";
 export default function Page() {
   return (
     <div className={styles.main}>
