@@ -1,11 +1,11 @@
 import "./mainStyles.css";
 import Image from "next/image";
 import styles from "./page.module.css";
-import sunrise from "./../public/sunrise.JPG";
+import sunrise from "./../public/sunrise.jpg";
 export default function Page() {
   return (
     <div className={styles.main}>
-      <Image width={1280} height={960} src={"/public/sunrise.JPG"} alt='img' />
+      <Image width={1280} height={960} src={sunrise} alt='img' />
       <div className={styles.logoBox}>
         <p className={styles.logo}>
           <span>&#9774;</span>
