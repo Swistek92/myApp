@@ -3,11 +3,11 @@ import Image from "next/image";
 import ja from "../public/ja.jpg";
 import styles from "./page.module.css";
 import Loading from "./Loading";
-import background from "../public/sunrise.JPG";
+import sunrise from "../public/sunrise.JPG";
 export default function Page() {
   return (
     <div className={styles.main}>
-      <Image width={1280} height={960} src={background} />
+      <Image width={1280} height={960} src={sunrise} />
       <div className={styles.logoBox}>
         <p className={styles.logo}>
           <span>&#9774;</span>
