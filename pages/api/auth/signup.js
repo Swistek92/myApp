@@ -3,6 +3,7 @@ import User from "../../../models/userModel";
 const databaseUrl = process.env.DATABASE;
 
 const handler = async (req, res) => {
+  console.log(req.method);
   console.log("connecting to mongo");
   const db = await connectDB();
 

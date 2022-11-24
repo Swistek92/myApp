@@ -4,10 +4,12 @@
   align-items: center;
   background-color: #000;
   color: white;
-  transition: all 3s;
+  /* transition: all 3s; */
   position: fixed;
   width: 100%;
   height: fit-content;
+  z-index: 4;
+  height: 3.5rem;
 }
 
 .brandName {
@@ -15,10 +17,12 @@
   margin: 0.5rem;
   cursor: e-resize;
   animation: rainbow 1s ease forwards infinite alternate;
+  margin-left: 10vw;
 }
 
 .links ul {
   display: flex;
+  margin-right: 10vw;
 }
 
 .links li a {
@@ -63,6 +67,7 @@
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    height: 3rem;
   }
 
   .links ul {
@@ -76,6 +81,7 @@
   .links li a {
     padding: 0.5rem;
     /* font-weight: 900; */
+    width: 100vw;
   }
 
   .links li a:hover {
@@ -95,13 +101,19 @@
 
 @keyframes top-to-down {
   0% {
-    background-color: #555;
-    color: black;
+    background-color: transparent;
+    color: transparent;
+    height: 0;
+  }
+
+  50% {
+    height: 50vh;
   }
 
   100% {
     background-color: #000;
     color: white;
+    height: 100vh;
   }
 }
 

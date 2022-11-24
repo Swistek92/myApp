@@ -1,20 +1,17 @@
 .main {
-  /* background-color: black; */
-  /* height: 200px; */
-  /* background-color: #cccccc; */
-  background-image: url("./../public/sunrise.JPG");
+  background-image: url("./../../public//IMG.JPG");
   background-size: cover;
-  background-position: left;
+  background-position: top;
   width: 100%;
 
   margin: 0;
   height: 70vh;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
 .img img {
   max-height: 70vh;
   position: absolute;
-  /* display: none; */
   right: 0;
   bottom: 0;
 
@@ -23,9 +20,6 @@
 
 @media only screen and (max-width: 1000px) {
   .img img {
-    /* position: absolute; */
-    /* right: 0; */
-    top: 10%;
     max-width: 50vw;
     height: auto;
   }

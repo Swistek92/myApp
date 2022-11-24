@@ -32,7 +32,7 @@
     "**/*.tsx",
     "types.d.ts",
     ".next/types/**/*.ts",
-    "Components/Header/Header.jsx"
+    "app/Components/Header/Header.jsx"
   ],
   "exclude": ["node_modules"]
 }
