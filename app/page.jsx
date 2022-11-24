@@ -7,7 +7,7 @@ import sunrise from "../public/sunrise.JPG";
 export default function Page() {
   return (
     <div className={styles.main}>
-      <Image width={1280} height={960} src={sunrise} />
+      <Image width={1280} src={sunrise} alt='Picture of the author' />
       <div className={styles.logoBox}>
         <p className={styles.logo}>
           <span>&#9774;</span>
