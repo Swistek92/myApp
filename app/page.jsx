@@ -2,6 +2,7 @@ import "./mainStyles.css";
 import Image from "next/image";
 import styles from "./page.module.css";
 import sunrise from "./../public/sunrise.jpg";
+import Link from "next/link";
 export default function Page() {
   return (
     <div className={styles.main}>
@@ -16,6 +17,9 @@ export default function Page() {
           <span className={styles.headingName}>??????</span>
           <span className={styles.headingSub}>is where life happens </span>
         </h1>
+        <Link href='#' className={`${styles.btn} ${styles.btnWhite}`}>
+          Discover Tours
+        </Link>
       </div>
     </div>
   );

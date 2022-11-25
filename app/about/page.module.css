@@ -6,7 +6,7 @@
 
   margin: 0;
   height: 70vh;
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
 .img img {
