@@ -25,7 +25,7 @@ const ContactForm = () => {
     },
     validationSchema: contactValidationSchema,
 
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const token = reRef.current.getValue();
       if (!token) {
         setCaptchaErrror("are you Mr.ROBOT ? -_- soo prove it!  ");
@@ -79,10 +79,11 @@ const ContactForm = () => {
         {touched.topic && errors.topic && (
           <span className={styles.error}>{errors.topic}</span>
         )}
-        <label htmlFor='contect'>Message</label>
+        <label htmlFor='content'>Message</label>
         <textarea
-          id='contect'
-          name='contect'
+          rows={4}
+          id='content'
+          name='content'
           type='string'
           onChange={handleChange}
           value={values.content}
