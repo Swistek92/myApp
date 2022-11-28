@@ -10,6 +10,8 @@ import sendEmailMutation from "../../utils/Mutations/sendEmailMutation";
 import { useRef } from "react";
 import { useState } from "react";
 
+import Input from "../Components/Input/Input";
+
 const ContactForm = () => {
   const { mutate, isLoading, isError, isSuccess, error } = sendEmailMutation();
   const router = useRouter();
@@ -25,7 +27,7 @@ const ContactForm = () => {
     },
     validationSchema: contactValidationSchema,
 
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
       const token = reRef.current.getValue();
       if (!token) {
         setCaptchaErrror("are you Mr.ROBOT ? -_- soo prove it!  ");
@@ -46,51 +48,35 @@ const ContactForm = () => {
       {isError && <h1> Error Http</h1>}
       {isSuccess && <h1> DONE </h1> && pushToHomePage()}
       <form className={styles.form} onSubmit={handleSubmit}>
-        <label htmlFor='email'> your email</label>
-        <input
-          id='email'
+        <Input
           name='email'
-          type='email'
           onChange={handleChange}
           value={values.email}
+          touched={touched.email}
+          error={errors.email}
         />
-        {touched.email && errors.email && (
-          <span className={styles.error}>{errors.email}</span>
-        )}
-        <label htmlFor='name'> your name</label>
-        <input
-          id='name'
+        <Input
           name='name'
-          type='string'
           onChange={handleChange}
           value={values.name}
+          touched={touched.name}
+          error={errors.name}
         />
-        {touched.name && errors.name && (
-          <span className={styles.error}>{errors.name}</span>
-        )}
-        <label htmlFor='topic'>Topic</label>
-        <input
-          id='topic'
+        <Input
           name='topic'
-          type='string'
           onChange={handleChange}
           value={values.topic}
+          touched={touched.topic}
+          error={errors.topic}
         />
-        {touched.topic && errors.topic && (
-          <span className={styles.error}>{errors.topic}</span>
-        )}
-        <label htmlFor='content'>Message</label>
-        <textarea
-          rows={4}
-          id='content'
+        <Input
           name='content'
-          type='string'
           onChange={handleChange}
           value={values.content}
+          touched={touched.content}
+          error={errors.content}
+          textarea={true}
         />
-        {touched.content && errors.content && (
-          <span className={styles.error}>{errors.content}</span>
-        )}
         <ReCAPTCHA
           ref={reRef}
           sitekey={reCaptchaApiKey}
