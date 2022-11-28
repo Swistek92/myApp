@@ -1,26 +1,11 @@
-import connectDB from "../../../utils/connectDB";
-import User from "../../../models/userModel";
-import validator from "validator";
 import isEmail from "validator/lib/isEmail";
 import nodemailer from "nodemailer";
-
-async function validateHuman(token) {
-  // console.log("validating token", token);
-  const secret = process.env.BACKEND_RECAPTCHA_SECRET_KEY;
-  const response = await fetch(
-    `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
-    {
-      method: "POST",
-    }
-  );
-  const data = await response.json();
-  return data.success;
-}
+import validateHuman from "../../../utils/Validators/humanValidation";
 
 const handler = async (req, res) => {
   const { email, topic, content, name, token } = req.body;
 
-  if (!validator.isEmail(email) || topic.length < 5 || content.length < 5) {
+  if (!isEmail(email) || topic.length < 5 || content.length < 5) {
     res.status(400).json({
       status: "error",
       message: "validate your data ",

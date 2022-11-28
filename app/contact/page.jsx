@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormik } from "formik";
-import contactValidationSchema from "../../utils/FontValidationSchema/contactValidationSchema";
+import contactValidationSchema from "../../utils/Validators/contactValidationSchema";
 import { useRouter } from "next/navigation";
 import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./styles.module.css";
@@ -11,13 +11,13 @@ import { useRef } from "react";
 import { useState } from "react";
 
 import Input from "../Components/Input/Input";
+import Recaptcha from "../Components/ReCaptcha/Recaptcha";
 
 const ContactForm = () => {
-  const { mutate, isLoading, isError, isSuccess, error } = sendEmailMutation();
   const router = useRouter();
-  const reCaptchaApiKey = "6Lck1jojAAAAAKxiC9GpeTfhUbrzZcCVbDHhJdJv";
-  const reRef = useRef();
-  const [captchaErrror, setCaptchaErrror] = useState();
+  const [recaptchaError, setRecaptchaError] = useState("");
+  const [token, setToken] = useState("");
+  const { mutate, isLoading, isError, isSuccess, error } = sendEmailMutation();
   const { touched, errors, handleChange, values, handleSubmit } = useFormik({
     initialValues: {
       email: "",
@@ -26,14 +26,11 @@ const ContactForm = () => {
       content: "",
     },
     validationSchema: contactValidationSchema,
-
     onSubmit: (values) => {
-      const token = reRef.current.getValue();
       if (!token) {
-        setCaptchaErrror("are you Mr.ROBOT ? -_- soo prove it!  ");
+        setRecaptchaError("are you MR.R0B0T? ");
         return;
       }
-      setCaptchaErrror("");
       mutate({ ...values, token });
     },
   });
@@ -47,9 +44,11 @@ const ContactForm = () => {
       {isLoading && <h1> LOADING</h1>}
       {isError && <h1> Error Http</h1>}
       {isSuccess && <h1> DONE </h1> && pushToHomePage()}
+
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input
           name='email'
+          type='email'
           onChange={handleChange}
           value={values.email}
           touched={touched.email}
@@ -69,25 +68,17 @@ const ContactForm = () => {
           touched={touched.topic}
           error={errors.topic}
         />
+
         <Input
           name='content'
           onChange={handleChange}
           value={values.content}
           touched={touched.content}
-          error={errors.content}
+          errr={errors.content}
           textarea={true}
         />
-        <ReCAPTCHA
-          ref={reRef}
-          sitekey={reCaptchaApiKey}
-          theme='dark'
-          type='image'
-          size='compact'
-        />
-        {captchaErrror && (
-          <span className={styles.error}> {captchaErrror}</span>
-        )}
-        <button type='submit'>Submit</button>{" "}
+        <Recaptcha setToken={setToken} error={recaptchaError} />
+        <button type='submit'>Submit</button>
       </form>
     </div>
   );

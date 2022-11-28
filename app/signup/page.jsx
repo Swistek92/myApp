@@ -4,13 +4,17 @@ import { useFormik } from "formik";
 import styles from "./signup.module.css";
 import { useRouter } from "next/navigation";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import signupMutation from "../../utils/Mutations/signupMutation";
-import signupValidationSchema from "../../utils/FontValidationSchema/signupValidationSchema";
+import signupValidationSchema from "../../utils/Validators/signupValidationSchema";
+import Input from "../Components/Input/Input";
+import Recaptcha from "../Components/ReCaptcha/Recaptcha";
 
 const SignupForm = () => {
   const { mutate, isLoading, isError, isSuccess, error } = signupMutation();
   const router = useRouter();
+  const [recaptchaError, setRecaptchaError] = useState("");
+  const [token, setToken] = useState("");
 
   const { touched, errors, handleChange, values, handleSubmit } = useFormik({
     initialValues: {
@@ -22,7 +26,11 @@ const SignupForm = () => {
     validationSchema: signupValidationSchema,
 
     onSubmit: (values) => {
-      mutate(values);
+      if (!token) {
+        setRecaptchaError("are you MR.R0B0T? ");
+        return;
+      }
+      mutate({ values, token });
     },
   });
   const pushToHomePage = () =>
@@ -36,50 +44,38 @@ const SignupForm = () => {
       {isError && <h1> Error Http</h1>}
       {isSuccess && <h1> DONE </h1> && pushToHomePage()}
       <form className={styles.form} onSubmit={handleSubmit}>
-        <label htmlFor='firstName'> Name</label>
-        <input
-          id='name'
+        <Input
           name='name'
-          type='text'
           onChange={handleChange}
           value={values.name}
+          touched={touched.name}
+          error={errors.name}
         />
-        {touched.name && errors.name && (
-          <span className={styles.error}>{errors.name}</span>
-        )}
-        <label htmlFor='email'>Email Address</label>
-        <input
-          id='email'
+        <Input
           name='email'
           type='email'
           onChange={handleChange}
           value={values.email}
+          touched={touched.email}
+          error={errors.email}
         />
-        {touched.email && errors.email && (
-          <span className={styles.error}>{errors.email}</span>
-        )}
-        <label htmlFor='password'>Password</label>
-        <input
-          id='password'
+        <Input
           name='password'
           type='password'
           onChange={handleChange}
           value={values.password}
+          touched={touched.password}
+          error={errors.password}
         />
-        {touched.password && errors.password && (
-          <span className={styles.error}>{errors.password}</span>
-        )}
-        <label htmlFor='passwordConfirm'>passwordConfirm</label>
-        <input
-          id='passwordConfirm'
+        <Input
           name='passwordConfirm'
           type='password'
           onChange={handleChange}
           value={values.passwordConfirm}
+          touched={touched.passwordConfirm}
+          error={errors.passwordConfirm}
         />
-        {touched.passwordConfirm && errors.passwordConfirm && (
-          <span className={styles.error}>{errors.passwordConfirm}</span>
-        )}
+        <Recaptcha setToken={setToken} error={recaptchaError} />
         <button type='submit'>Submit</button>{" "}
       </form>
     </div>
