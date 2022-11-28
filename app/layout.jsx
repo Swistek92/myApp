@@ -2,7 +2,6 @@ import ReactQueryWrappper from "./ReactQueryWrappper";
 import Header from "./Components/Header/Header";
 
 import styles from "./layout.module.css";
-
 export default function RootLayout({ children }) {
   return (
     <>

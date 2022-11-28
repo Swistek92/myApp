@@ -2,11 +2,11 @@
 
 import { useFormik } from "formik";
 import styles from "./signup.module.css";
-import signupValidationSchema from "./signupValidationSchema";
 import { useRouter } from "next/navigation";
 
 import React from "react";
-import signupMutation from "../../utils/signupMutation";
+import signupMutation from "../../utils/Mutations/signupMutation";
+import signupValidationSchema from "../../utils/FontValidationSchema/signupValidationSchema";
 
 const SignupForm = () => {
   const { mutate, isLoading, isError, isSuccess, error } = signupMutation();
