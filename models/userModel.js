@@ -5,16 +5,16 @@ import { hash } from "bcryptjs";
 const userSchema = new Schema({
   name: {
     type: String,
-    required: [true, "user must have a name"],
-    unique: [true, "name are allready used"],
+    required: [true, "user must have a unique  name "],
+    unique: true,
     trim: true,
-    maxLength: [15, "A name must have less or equal 40characters"],
+    maxLength: [15, "A name must have less or equal 15characters"],
     minLength: [4, "A name must have more or equal 4characters"],
   },
   email: {
     type: String,
-    required: [true, "user must have a  email"],
-    unique: [true, " email is allready used"],
+    required: [true, "user must have a unique and valid email!"],
+    unique: true,
     lowercase: true,
     trim: true,
     validate: [isEmail, "please provide a valid email"],

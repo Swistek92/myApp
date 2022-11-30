@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./styles.module.css";
 

@@ -4,20 +4,22 @@ import { useFormik } from "formik";
 import styles from "./signup.module.css";
 import { useRouter } from "next/navigation";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import signupMutation from "../../utils/Mutations/signupMutation";
 import signupValidationSchema from "../../utils/Validators/signupValidationSchema";
 import Input from "../Components/Input/Input";
-import Recaptcha from "../Components/ReCaptcha/v2/RecaptchaV2";
 import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
+import ReCAPTCHA from "react-google-recaptcha";
+
 import Button from "../Components/Button/Button";
 
 const SignupForm = () => {
+  const reCaptchaApiKey = "6Lck1jojAAAAAKxiC9GpeTfhUbrzZcCVbDHhJdJv";
   const { mutate, isLoading, isError, isSuccess, error } = signupMutation();
   const router = useRouter();
   const [recaptchaError, setRecaptchaError] = useState("");
-  const [token, setToken] = useState("");
-
+  const [validateError, setValidateError] = useState("");
+  const refRec = useRef();
   const { touched, errors, handleChange, values, handleSubmit } = useFormik({
     initialValues: {
       name: "",
@@ -28,6 +30,8 @@ const SignupForm = () => {
     validationSchema: signupValidationSchema,
 
     onSubmit: (values) => {
+      const token = refRec.current.getValue();
+
       if (!token) {
         setRecaptchaError("are you MR.R0B0T? ");
         return;
@@ -36,25 +40,34 @@ const SignupForm = () => {
     },
   });
 
-  if (isLoading) {
-    infoToast("🦄 Wait Wait Wait sending...  ");
-  }
+  useEffect(() => {
+    if (isLoading) {
+      infoToast("🦄 Wait Wait Wait sending...  ");
+    }
 
-  if (isSuccess) {
-    successToast("🦄 Done ! we send a email!");
-    setTimeout(() => {
-      router.push("/");
-    }, 1500);
-  }
+    if (isSuccess) {
+      successToast("🦄 Done ! we send a email!");
+      setTimeout(() => {
+        router.push("/");
+      }, 1500);
+    }
 
-  if (isError) {
-    let errorType = error.response.data.data.error.name;
-    errorToast(errorType ? errorType : "smth went wrong");
-  }
+    if (isError) {
+      const errorMSg = error.response.data.data.error.errors.name.message
+        ? error.response.data.data.error.errors.name.message
+        : "smth went wrong";
+      setValidateError(errorMSg);
+      errorToast(errorMSg);
+      refRec.current.reset(refRec.current.getWidgetId());
+    } else {
+      setValidateError("");
+    }
+  }, [isLoading, isSuccess, isError]);
 
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
+        {validateError && <h3 className={styles.error}> {validateError}</h3>}
         <Input
           name='name'
           type='text'
@@ -88,7 +101,17 @@ const SignupForm = () => {
           touched={touched.passwordConfirm}
           error={errors.passwordConfirm}
         />
-        <Recaptcha setToken={setToken} error={recaptchaError} />
+        <ReCAPTCHA
+          id='recaptcha'
+          ref={refRec}
+          sitekey={reCaptchaApiKey}
+          theme='dark'
+          type='image'
+          size='compact'
+        />
+        {recaptchaError && (
+          <span className={styles.error}>{recaptchaError}</span>
+        )}
         <Button type='submit'>Submit</Button>{" "}
       </form>
     </div>

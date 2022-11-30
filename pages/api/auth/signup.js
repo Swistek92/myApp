@@ -17,6 +17,7 @@ const handler = async (req, res) => {
   }
 
   const db = await connectDB();
+
   try {
     const newUser = await User.create({
       name,
