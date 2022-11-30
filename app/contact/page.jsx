@@ -7,11 +7,12 @@ import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./styles.module.css";
 import React from "react";
 import sendEmailMutation from "../../utils/Mutations/sendEmailMutation";
-import { useRef } from "react";
 import { useState } from "react";
 
+import Button from "../Components/Button/Button";
 import Input from "../Components/Input/Input";
-import Recaptcha from "../Components/ReCaptcha/Recaptcha";
+import Recaptcha from "../Components/ReCaptcha/v2/RecaptchaV2";
+import { successToast, infoToast, errorToast } from "../../utils/Toasts/Toast";
 
 const ContactForm = () => {
   const router = useRouter();
@@ -34,17 +35,24 @@ const ContactForm = () => {
       mutate({ ...values, token });
     },
   });
-  const pushToHomePage = () =>
+
+  if (isLoading) {
+    infoToast("🦄 Wait Wait Wait sending...  ");
+  }
+
+  if (isSuccess) {
+    successToast("🦄 Done ! we send a email!");
     setTimeout(() => {
       router.push("/");
-    }, 1000);
+    }, 1500);
+  }
+
+  if (isError) {
+    errorToast("smth went wrong");
+  }
 
   return (
     <div className={styles.container}>
-      {isLoading && <h1> LOADING</h1>}
-      {isError && <h1> Error Http</h1>}
-      {isSuccess && <h1> DONE </h1> && pushToHomePage()}
-
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input
           name='email'
@@ -56,6 +64,7 @@ const ContactForm = () => {
         />
         <Input
           name='name'
+          type='text'
           onChange={handleChange}
           value={values.name}
           touched={touched.name}
@@ -63,6 +72,7 @@ const ContactForm = () => {
         />
         <Input
           name='topic'
+          type='text'
           onChange={handleChange}
           value={values.topic}
           touched={touched.topic}
@@ -71,6 +81,7 @@ const ContactForm = () => {
 
         <Input
           name='content'
+          type='text'
           onChange={handleChange}
           value={values.content}
           touched={touched.content}
@@ -78,7 +89,7 @@ const ContactForm = () => {
           textarea={true}
         />
         <Recaptcha setToken={setToken} error={recaptchaError} />
-        <button type='submit'>Submit</button>
+        <Button type='submit'>Submit</Button>
       </form>
     </div>
   );

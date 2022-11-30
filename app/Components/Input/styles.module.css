@@ -1,3 +1,51 @@
+.input {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  min-width: 50vw;
+  max-width: 80vw;
+}
+
+.input label {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.input input {
+  text-align: center;
+}
+
+.input input[type="text"] {
+  background-color: rgb(102, 178, 201);
+}
+.input input[type="text"]:hover {
+  background-color: rgb(28, 110, 134);
+}
+
+.input input[type="email"] {
+  background-color: rgb(140, 212, 152);
+}
+.input input[type="email"]:hover {
+  background-color: rgb(42, 187, 67);
+}
+
+.input input[type="password"] {
+  background-color: rgb(200, 206, 147);
+}
+.input input[type="password"]:hover {
+  background-color: rgb(189, 206, 60);
+}
+
+.input textarea {
+  background-color: rgb(98, 98, 199);
+}
+.input textarea:hover {
+  background-color: rgb(73, 73, 204);
+}
+
 .error {
   color: red;
   font-weight: 700;

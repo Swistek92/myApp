@@ -15,20 +15,27 @@ const handler = async (req, res) => {
     });
     return;
   }
+
   const db = await connectDB();
+  try {
+    const newUser = await User.create({
+      name,
+      email,
+      password,
+      passwordConfirm,
+      role: "user",
+    });
 
-  const newUser = await User.create({
-    name,
-    email,
-    password,
-    passwordConfirm,
-    role: "user",
-  });
-
-  res.status(201).json({
-    status: "success",
-    data: { newUser },
-  });
+    res.status(201).json({
+      status: "success",
+      data: { newUser },
+    });
+  } catch (error) {
+    res.status(422).json({
+      status: "error",
+      data: { error },
+    });
+  }
 };
 
 export default handler;

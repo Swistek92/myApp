@@ -1,9 +1,18 @@
 import React from "react";
 import styles from "./styles.module.css";
-const Input = ({ name, type, onChange, value, touched, error, textarea }) => {
+const Input = ({
+  name,
+  type,
+  onChange,
+  value,
+  touched,
+  error,
+  textarea,
+  label,
+}) => {
   return (
-    <>
-      <label htmlFor={name}> {name}</label>
+    <div className={styles.input}>
+      <label htmlFor={name}> {label ? label : name}</label>
       {!textarea ? (
         <input
           id={name}
@@ -22,7 +31,7 @@ const Input = ({ name, type, onChange, value, touched, error, textarea }) => {
         />
       )}
       {touched && error && <span className={styles.error}>{error}</span>}
-    </>
+    </div>
   );
 };
 

@@ -8,7 +8,9 @@ import React, { useRef, useState } from "react";
 import signupMutation from "../../utils/Mutations/signupMutation";
 import signupValidationSchema from "../../utils/Validators/signupValidationSchema";
 import Input from "../Components/Input/Input";
-import Recaptcha from "../Components/ReCaptcha/Recaptcha";
+import Recaptcha from "../Components/ReCaptcha/v2/RecaptchaV2";
+import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
+import Button from "../Components/Button/Button";
 
 const SignupForm = () => {
   const { mutate, isLoading, isError, isSuccess, error } = signupMutation();
@@ -33,19 +35,29 @@ const SignupForm = () => {
       mutate({ values, token });
     },
   });
-  const pushToHomePage = () =>
+
+  if (isLoading) {
+    infoToast("🦄 Wait Wait Wait sending...  ");
+  }
+
+  if (isSuccess) {
+    successToast("🦄 Done ! we send a email!");
     setTimeout(() => {
       router.push("/");
-    }, 1000);
+    }, 1500);
+  }
+
+  if (isError) {
+    let errorType = error.response.data.data.error.name;
+    errorToast(errorType ? errorType : "smth went wrong");
+  }
 
   return (
     <div className={styles.container}>
-      {isLoading && <h1> LOADING</h1>}
-      {isError && <h1> Error Http</h1>}
-      {isSuccess && <h1> DONE </h1> && pushToHomePage()}
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input
           name='name'
+          type='text'
           onChange={handleChange}
           value={values.name}
           touched={touched.name}
@@ -71,12 +83,13 @@ const SignupForm = () => {
           name='passwordConfirm'
           type='password'
           onChange={handleChange}
+          label={"password Confirm"}
           value={values.passwordConfirm}
           touched={touched.passwordConfirm}
           error={errors.passwordConfirm}
         />
         <Recaptcha setToken={setToken} error={recaptchaError} />
-        <button type='submit'>Submit</button>{" "}
+        <Button type='submit'>Submit</Button>{" "}
       </form>
     </div>
   );

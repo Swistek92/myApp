@@ -1,13 +1,17 @@
 "use client";
 
 import styles from "./Header.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Link from "next/link";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   const [show, setShow] = useState(false);
+  const audio = useRef();
 
+  audio.current;
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
   return (
@@ -22,6 +26,18 @@ const Header = () => {
       </a>
 
       <div className={styles.links} required={show}>
+        <ToastContainer
+          position='top-center'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme='dark'
+        />
         <ul onClick={() => closeMenu()}>
           <li>
             <Link href='/'> Home</Link>
