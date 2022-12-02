@@ -26,6 +26,11 @@ const userSchema = new Schema({
     minLength: [6, "A password must have more or equal 6characters"],
     select: false,
   },
+  role: {
+    type: String,
+    enum: ["user", "guide", "lead-guide", "admin"],
+    default: "user",
+  },
   passwordConfirm: {
     type: String,
     required: [true, "plase a confirm your password"],
@@ -36,12 +41,6 @@ const userSchema = new Schema({
       },
       message: "password are not the same",
     },
-  },
-
-  role: {
-    type: String,
-    enum: ["user", "guide", "lead-guide", "admin"],
-    default: "user",
   },
 });
 

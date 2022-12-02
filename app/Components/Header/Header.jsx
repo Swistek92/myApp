@@ -49,7 +49,13 @@ const Header = () => {
             <Link href='/contact'> Contact</Link>
           </li>
           <li>
+            <Link href='/login'> login</Link>
+          </li>
+          <li>
             <Link href='/signup'> auth</Link>
+          </li>{" "}
+          <li>
+            <Link href='/session'> session</Link>
           </li>
         </ul>
       </div>

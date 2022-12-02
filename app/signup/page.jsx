@@ -10,7 +10,7 @@ import signupValidationSchema from "../../utils/Validators/signupValidationSchem
 import Input from "../Components/Input/Input";
 import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
 import ReCAPTCHA from "react-google-recaptcha";
-
+import RecaptchaComponent from "../Components/ReCaptcha/v2/RecaptchaV2";
 import Button from "../Components/Button/Button";
 
 const SignupForm = () => {
@@ -19,7 +19,7 @@ const SignupForm = () => {
   const router = useRouter();
   const [recaptchaError, setRecaptchaError] = useState("");
   const [validateError, setValidateError] = useState("");
-  const refRec = useRef();
+  const [token, setToken] = useState("");
   const { touched, errors, handleChange, values, handleSubmit } = useFormik({
     initialValues: {
       name: "",
@@ -30,13 +30,11 @@ const SignupForm = () => {
     validationSchema: signupValidationSchema,
 
     onSubmit: (values) => {
-      const token = refRec.current.getValue();
-
       if (!token) {
         setRecaptchaError("are you MR.R0B0T? ");
         return;
       }
-      mutate({ values, token });
+      mutate({ ...values, token });
     },
   });
 
@@ -58,7 +56,6 @@ const SignupForm = () => {
         : "smth went wrong";
       setValidateError(errorMSg);
       errorToast(errorMSg);
-      refRec.current.reset(refRec.current.getWidgetId());
     } else {
       setValidateError("");
     }
@@ -101,17 +98,11 @@ const SignupForm = () => {
           touched={touched.passwordConfirm}
           error={errors.passwordConfirm}
         />
-        <ReCAPTCHA
-          id='recaptcha'
-          ref={refRec}
-          sitekey={reCaptchaApiKey}
-          theme='dark'
-          type='image'
-          size='compact'
+        <RecaptchaComponent
+          setToken={setToken}
+          error={recaptchaError}
+          isError={isError}
         />
-        {recaptchaError && (
-          <span className={styles.error}>{recaptchaError}</span>
-        )}
         <Button type='submit'>Submit</Button>{" "}
       </form>
     </div>

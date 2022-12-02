@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./styles.module.css";
 
-const Recaptcha = ({ setToken, error }) => {
+const Recaptcha = ({ setToken, error, isError }) => {
   const reCaptchaApiKey = "6Lck1jojAAAAAKxiC9GpeTfhUbrzZcCVbDHhJdJv";
   const refRec = useRef();
 
@@ -12,6 +12,13 @@ const Recaptcha = ({ setToken, error }) => {
     const token = refRec.current.getValue();
     return setToken(token);
   };
+
+  useEffect(() => {
+    if (isError) {
+      refRec.current.reset(refRec.current.getWidgetId());
+      setToken("");
+    }
+  }, [isError]);
 
   return (
     <>

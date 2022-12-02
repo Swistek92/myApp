@@ -43,7 +43,6 @@ const handler = async (req, res) => {
         </ul>
       <p>email:${content}</p>
      </div>
-
     `,
   };
   transporter.sendMail(options, (error, info) => {

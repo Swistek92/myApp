@@ -88,7 +88,11 @@ const ContactForm = () => {
           errr={errors.content}
           textarea={true}
         />
-        <Recaptcha setToken={setToken} error={recaptchaError} />
+        <Recaptcha
+          setToken={setToken}
+          error={recaptchaError}
+          isError={isError}
+        />
         <Button type='submit'>Submit</Button>
       </form>
     </div>
