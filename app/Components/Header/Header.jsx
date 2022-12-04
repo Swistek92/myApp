@@ -6,14 +6,14 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useSession } from "next-auth/react";
 const Header = () => {
   const [show, setShow] = useState(false);
-  const audio = useRef();
-
-  audio.current;
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
+  const { data: session, status } = useSession();
+  // console.log(session);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.brandName}>
@@ -54,9 +54,19 @@ const Header = () => {
           <li>
             <Link href='/signup'> auth</Link>
           </li>{" "}
-          <li>
-            <Link href='/session'> session</Link>
-          </li>
+          {session && (
+            <li>
+              <Link href='/user'> user</Link>
+            </li>
+          )}
+          {session && session.user.role === "admin" && (
+            <li>
+              <Link href='/admin'> admin</Link>
+            </li>
+          )}
+          {/* <li>
+            <Link href='/admin'> admin</Link>
+          </li> */}
         </ul>
       </div>
     </nav>

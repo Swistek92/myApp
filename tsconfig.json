@@ -32,7 +32,8 @@
     "**/*.tsx",
     "types.d.ts",
     ".next/types/**/*.ts",
-    "app/Components/Header/Header.jsx"
+    "app/Components/Header/Header.jsx",
+    "app/user/layout.jsx"
   ],
   "exclude": ["node_modules"]
 }

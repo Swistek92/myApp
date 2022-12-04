@@ -5,7 +5,7 @@ import contactValidationSchema from "../../utils/Validators/contactValidationSch
 import { useRouter } from "next/navigation";
 import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./styles.module.css";
-import React from "react";
+import React, { useEffect } from "react";
 import sendEmailMutation from "../../utils/Mutations/sendEmailMutation";
 import { useState } from "react";
 
@@ -13,19 +13,22 @@ import Button from "../Components/Button/Button";
 import Input from "../Components/Input/Input";
 import Recaptcha from "../Components/ReCaptcha/v2/RecaptchaV2";
 import { successToast, infoToast, errorToast } from "../../utils/Toasts/Toast";
+import { useSession } from "next-auth/react";
 
 const ContactForm = () => {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const [recaptchaError, setRecaptchaError] = useState("");
   const [token, setToken] = useState("");
   const { mutate, isLoading, isError, isSuccess, error } = sendEmailMutation();
   const { touched, errors, handleChange, values, handleSubmit } = useFormik({
     initialValues: {
-      email: "",
-      name: "",
+      email: session ? session.user.email : "",
+      name: session ? session.user.name : "",
       topic: "",
       content: "",
     },
+    enableReinitialize: true,
     validationSchema: contactValidationSchema,
     onSubmit: (values) => {
       if (!token) {

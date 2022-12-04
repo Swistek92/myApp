@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.row1 {
+  flex: 1;
+  width: 20vw;
+  border-right: 4px solid rgb(56, 54, 54);
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 5rem;
+}
+.children {
+  color: rgb(32, 155, 155);
+  flex: 4;
+  /* text-align: center; */
+}
