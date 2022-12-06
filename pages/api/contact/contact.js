@@ -24,14 +24,14 @@ const handler = async (req, res) => {
   let transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
-      user: "swistek_portfolio@outlook.com",
+      user: "swistoklik@outlook.com",
       pass: process.env.PASSWORD,
     },
   });
 
   const options = {
-    from: "swistek_portfolio@outlook.com",
-    to: "swistek.porfolio@gmail.com",
+    from: "swistoklik@outlook.com",
+    to: "swistekxd@gmail.com",
     subject: `message from ${name}`,
     html: `
     <div>

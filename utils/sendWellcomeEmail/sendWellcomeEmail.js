@@ -2,18 +2,19 @@ import isEmail from "validator/lib/isEmail";
 import nodemailer from "nodemailer";
 
 const sendWellcomeEmail = ({ email, name }) => {
+  console.log(email, name);
   let transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
-      user: "swistek_portfolio@outlook.com",
+      user: "swistoklik@outlook.com",
       pass: process.env.PASSWORD,
     },
   });
 
   const options = {
-    from: "swistek_portfolio@outlook.com",
-    to: email,
-    subject: `wellcome  on Świstoklik.pl!`,
+    from: "kontakt@swistoklik.pl",
+    to: "swistekxd@gmail.com",
+    subject: `witaj ${name}  na   Świstoklik.pl!`,
     html: `
     <div>
     <h1>Siema ${name}</h1>
@@ -24,7 +25,7 @@ const sendWellcomeEmail = ({ email, name }) => {
   };
   transporter.sendMail(options, (error, info) => {
     if (error) {
-      throw new Error("smth went wrong", 404);
+      console.log(error);
     } else {
       console.log("send wellcome email");
     }

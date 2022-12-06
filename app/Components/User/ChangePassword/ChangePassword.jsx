@@ -18,7 +18,7 @@ const ChangePassword = () => {
     initialValues: {
       currentPassword: "",
       password: "",
-      passwordConfirmation: "",
+      passwordCorfim: "",
     },
     validationSchema: changePasswordValidationSchema,
 
