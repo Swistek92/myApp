@@ -63,6 +63,12 @@
 .logout a:hover {
   background-color: rgb(196, 60, 60);
 }
+
+.video video {
+  max-height: 4rem;
+  background-color: red;
+  width: auto;
+}
 @media only screen and (max-width: 600px) {
   .logout {
     padding: 0;

@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useSession } from "next-auth/react";
 import Button from "../Button/Button";
 import Logout from "../../../utils/Authentications/Logout";
+import Image from "next/image";
 const Header = () => {
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
@@ -21,6 +22,8 @@ const Header = () => {
       <div className={styles.brandName}>
         Piotr Świstowski <span className={styles.peace}>&#9774;</span>
       </div>
+      <div className={styles.video}></div>
+
       <a href='#' className={styles.toggleBtn} onClick={() => toggleMenu()}>
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
@@ -56,7 +59,7 @@ const Header = () => {
                 <Link href='/login'> login</Link>
               </li>
               <li>
-                <Link href='/signup'> auth</Link>
+                <Link href='/register'> register</Link>
               </li>
             </>
           )}

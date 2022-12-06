@@ -4,6 +4,8 @@ import styles from "./styles.module.css";
 import sunrise from "../../../../public/sunrise.jpg";
 import Link from "next/link";
 
+import logo from "../../../../public/logo.png";
+
 const Header = () => {
   return (
     <div className={styles.main}>
@@ -16,7 +18,9 @@ const Header = () => {
       />
       <div className={styles.logoBox}>
         <p className={styles.logo}>
-          <span>&#9774;</span>
+          <Image src={logo} width={100} height={100} />
+
+          {/* <span>&#9774;</span> */}
         </p>
       </div>
       <div className={styles.textBox}>

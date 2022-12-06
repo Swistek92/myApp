@@ -10,6 +10,7 @@ import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
 import Button from "../Components/Button/Button";
 import loginValidationSchema from "../../utils/Validators/loginVaidationSchema";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 const LoginForm = () => {
   const router = useRouter();
   const [validateError, setValidateError] = useState("");
@@ -70,6 +71,9 @@ const LoginForm = () => {
         />
         <Button type='submit'>Submit</Button>{" "}
       </form>
+      <div className={styles.link}>
+        <Link href={"/register"}>Do you like register ? </Link>
+      </div>
     </div>
   );
 };
