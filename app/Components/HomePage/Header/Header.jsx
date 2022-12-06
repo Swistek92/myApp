@@ -21,11 +21,11 @@ const Header = () => {
       </div>
       <div className={styles.textBox}>
         <h1 className={styles.heading}>
-          <span className={styles.headingName}>??????</span>
-          <span className={styles.headingSub}>is where life happens </span>
+          <span className={styles.headingName}>?:?:</span>
+          <span className={styles.headingSub}>lalalalalaa</span>
         </h1>
-        <Link href='#' className={`${styles.btn} ${styles.btnWhite}`}>
-          Discover Tours
+        <Link href='/contact' className={`${styles.btn} ${styles.btnWhite}`}>
+          wanna talk ?
         </Link>
       </div>
     </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-
-const User = ({ session }) => {
+import Button from "../../Button/Button";
+import logout from "../../../../utils/Authentications/Logout";
+const Main = ({ session }) => {
   const user = session.user;
   return (
     <div>
@@ -9,10 +10,12 @@ const User = ({ session }) => {
         <p> name {user.name}</p>
         <p> email {user.email}</p>
         <p> role {user.role}</p>
-        <button onClick={() => signOut()}>signOut</button>
+        <Button type={"logout"} onClick={() => logout()}>
+          logout
+        </Button>
       </div>
     </div>
   );
 };
 
-export default User;
+export default Main;

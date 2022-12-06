@@ -1,5 +1,5 @@
 import styles from "./layout.module.css";
-import Menu from "./Menu";
+import Menu from "../Components/User/Menu/Menu";
 export default function RootLayout({ children }) {
   return (
     <main className={styles.main}>

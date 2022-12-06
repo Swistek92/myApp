@@ -1,8 +1,0 @@
-.menu {
-  font-size: 2rem;
-  /* text-align: center; */
-}
-.links li:hover {
-  background-color: brown;
-  cursor: pointer;
-}

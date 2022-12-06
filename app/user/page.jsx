@@ -2,12 +2,12 @@
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import AuthUsers from "utils/Authentications/AuthUsers";
-import User from "./User";
+import Main from "../Components/User/Main/Main";
 export default function Login() {
   const { data: session, status } = useSession();
   return (
     <AuthUsers session={session} status={status}>
-      <User session={session} />
+      <Main session={session} status={status} />
     </AuthUsers>
   );
 }

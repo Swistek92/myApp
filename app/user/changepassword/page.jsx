@@ -1,11 +1,11 @@
 import React from "react";
-
-const page = () => {
+import AuthUsers from "../../../utils/Authentications/AuthUsers";
+import ChangePassword from "../../Components/User/ChangePassword/ChangePassword";
+const page = ({ session, status }) => {
   return (
-    <div>
-      pag
-      <h1>das</h1>e
-    </div>
+    <AuthUsers session={session} status={status}>
+      <ChangePassword />
+    </AuthUsers>
   );
 };
 

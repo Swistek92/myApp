@@ -7,6 +7,8 @@ import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSession } from "next-auth/react";
+import Button from "../Button/Button";
+import Logout from "../../../utils/Authentications/Logout";
 const Header = () => {
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
@@ -48,12 +50,17 @@ const Header = () => {
           <li>
             <Link href='/contact'> Contact</Link>
           </li>
-          <li>
-            <Link href='/login'> login</Link>
-          </li>
-          <li>
-            <Link href='/signup'> auth</Link>
-          </li>{" "}
+          {!session && (
+            <>
+              <li>
+                <Link href='/login'> login</Link>
+              </li>
+              <li>
+                <Link href='/signup'> auth</Link>
+              </li>
+            </>
+          )}
+
           {session && (
             <li>
               <Link href='/user'> user</Link>
@@ -64,9 +71,11 @@ const Header = () => {
               <Link href='/admin'> admin</Link>
             </li>
           )}
-          {/* <li>
-            <Link href='/admin'> admin</Link>
-          </li> */}
+          {session && (
+            <li className={styles.logout} onClick={() => Logout()}>
+              <Link href='#'>Logout</Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

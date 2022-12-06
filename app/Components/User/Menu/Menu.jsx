@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-import styles from "./menu.module.css";
+import styles from "./styles.module.css";
 const Menu = () => {
   return (
     <nav className={styles.menu}>

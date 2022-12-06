@@ -15,5 +15,3 @@ const changePasswordValidationSchema = Yup.object({
   ),
 });
 export default changePasswordValidationSchema;
-
-import * as Yup from "yup";

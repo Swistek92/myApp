@@ -2,8 +2,10 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  min-width: 50vw;
-  max-width: 80vw;
+  /* min-width: 50%; */
+  /* max-width: 80%; */
+  align-items: center;
+  justify-content: center;
 }
 
 .input label {

@@ -5,10 +5,10 @@ import styles from "./styles.module.css";
 import { useRouter } from "next/navigation";
 
 import React, { useEffect, useRef, useState } from "react";
-import Input from "../Input/Input";
-import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
-import Button from "../Components/Button/Button";
-import changePasswordValidationSchema from "../../utils/Validators/changePasswordValidationSchema";
+import Input from "../../Input/Input";
+// import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
+import Button from "../../Button/Button";
+import changePasswordValidationSchema from "../../../../utils/Validators/changePasswordValidationSchema";
 import { signIn } from "next-auth/react";
 const ChangePassword = () => {
   const router = useRouter();
@@ -27,21 +27,21 @@ const ChangePassword = () => {
     },
   });
 
-  useEffect(() => {
-    if (validateError) {
-      errorToast(validateError);
-    }
-    if (isLogin) {
-      successToast("are you login in! ");
-    }
-  }, [validateError, isLogin]);
+  // useEffect(() => {
+  //   if (validateError) {
+  //     errorToast(validateError);
+  //   }
+  //   if (isLogin) {
+  //     successToast("are you login in! ");
+  //   }
+  // }, [validateError, isLogin]);
 
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
         {validateError && <h3 className={styles.error}> {validateError}</h3>}
         <Input
-          label='current password to your account'
+          label='current password'
           name='currentPassword'
           type='password'
           onChange={handleChange}
