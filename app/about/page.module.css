@@ -1,21 +1,25 @@
 .main {
-  /* background-image: url("./../../public//IMG.JPG"); */
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
   background-size: cover;
-  background-position: top;
-  width: 100%;
-
   margin: 0;
-  height: 70vh;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.img img {
-  max-height: 70vh;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+.image {
+  margin-top: 20px;
+  padding-top: 30px;
+  max-width: 30vw;
+  height: auto;
+  /* max-height: 30vh; */
+  /* width: auto; */
+  /* position: absolute; */
+  /* right: 0; */
+  /* bottom: 0; */
+  /* clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); */
 
-  width: auto;
+  /* width: auto; */
 }
 
 @media only screen and (max-width: 1000px) {

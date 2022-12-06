@@ -2,6 +2,9 @@ import connectDB from "../../../utils/connectDB";
 import User from "../../../models/userModel";
 import validateHuman from "../../../utils/Validators/humanValidation";
 import mongoose from "mongoose";
+import axios from "axios";
+import sendWellcomeEmail from "../../../utils/sendWellcomeEmail/sendWellcomeEmail";
+
 const databaseUrl = process.env.DATABASE;
 
 const handler = async (req, res) => {
@@ -38,6 +41,12 @@ const handler = async (req, res) => {
       status: "error",
       data: { error },
     });
+  }
+
+  try {
+    sendWellcomeEmail({ email, name });
+  } catch (error) {
+    console.log(error);
   }
 };
 
