@@ -16,8 +16,11 @@ const Header = () => {
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
   const { data: session, status } = useSession();
-  // console.log(session);//
+  console.log(session);
 
+  if (status === "authenticated") {
+    return <p>Signed in as {session.user.email}</p>;
+  }
   return (
     <>
       <div className={styles.container}>
