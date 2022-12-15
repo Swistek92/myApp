@@ -16,7 +16,7 @@ const Header = () => {
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
   const { data: session, status } = useSession();
-  // console.log(session);
+  // console.log(session);//
 
   return (
     <>
