@@ -3,17 +3,15 @@ import "./mainStyles.css";
 import Header from "./Components/Header/Header";
 import styles from "./layout.module.css";
 import Wrappers from "./Components/Wrappers/Wrappers";
-import { unstable_getServerSession } from "next-auth";
-export default async function RootLayout({ children, ...props }) {
-  const session = await unstable_getServerSession();
+export default function RootLayout({ children, ...props }) {
   console.log(" session", session);
   return (
     <>
       <html lang='en'>
         <head />
         <body>
-          <Wrappers session={session}>
-            <Header session={session} />
+          <Wrappers>
+            <Header />
             <main className={styles.main}>{children}</main>
           </Wrappers>
         </body>
