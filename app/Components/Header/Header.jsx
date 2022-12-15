@@ -1,4 +1,5 @@
 "use client";
+
 import styles from "./Header.module.css";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -15,8 +16,7 @@ const Header = () => {
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
   const { data: session, status } = useSession();
-
-  console.log("sesion head", session);
+  // console.log(session);
 
   return (
     <>
