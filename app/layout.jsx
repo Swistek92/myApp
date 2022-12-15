@@ -1,18 +1,19 @@
-"use client";
 import "./mainStyles.css";
 
 import Header from "./Components/Header/Header";
-import Router from "next/router";
 import styles from "./layout.module.css";
 import Wrappers from "./Components/Wrappers/Wrappers";
-export default function RootLayout({ children, ...props }) {
+import { unstable_getServerSession } from "next-auth";
+export default async function RootLayout({ children, ...props }) {
+  const session = await unstable_getServerSession();
+  console.log(" session", session);
   return (
     <>
       <html lang='en'>
         <head />
         <body>
-          <Wrappers>
-            <Header />
+          <Wrappers session={session}>
+            <Header session={session} />
             <main className={styles.main}>{children}</main>
           </Wrappers>
         </body>
