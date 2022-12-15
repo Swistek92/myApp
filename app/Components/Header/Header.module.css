@@ -1,24 +1,49 @@
+[data-theme="dark"] .navbar {
+  color: #fff;
+  background-color: #000;
+}
+
+[data-theme="light"] .navbar {
+  background-color: #fff;
+  color: #000;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000;
-  color: white;
-  /* transition: all 3s; */
   position: fixed;
   width: 100vw;
-  /* max-width: 100vw; */
   height: fit-content;
   z-index: 4;
   height: 3.5rem;
 }
 
+.logo {
+  position: fixed;
+  top: 3rem;
+  z-index: 20;
+  animation: appLogoSpin 2s infinite linear;
+}
+
+.logo:hover {
+  animation: appLogoSpin 0.3s infinite linear;
+}
+
 .brandName {
   font-size: 1.5rem;
   margin: 0.5rem;
-  cursor: e-resize;
-  animation: rainbow 1s ease forwards infinite alternate;
+  margin-top: 1.5rem;
+  /* cursor: none; */
+  /* animation: rainbow 1s ease forwards infinite alternate; */
   margin-left: 10vw;
+  display: flex;
+}
+
+.brandName .colorMode {
+  cursor: pointer;
+
+  animation: rainbow 1s ease forwards infinite alternate;
 }
 
 .links ul {
@@ -70,6 +95,9 @@
   width: auto;
 }
 @media only screen and (max-width: 600px) {
+  .brandName {
+    margin-top: 0.5rem;
+  }
   .logout {
     padding: 0;
     margin: 0;
@@ -84,6 +112,7 @@
     display: none;
     width: 100%;
     animation: top-to-down1 1s ease;
+    margin-top: -1.5rem;
   }
 
   .navbar {
@@ -155,7 +184,7 @@
 
 @keyframes rainbow {
   100% {
-    opacity: 0;
+    opacity: 0.5;
     color: white;
   }
   80% {
@@ -188,5 +217,27 @@
     opacity: 1;
     height: 4px;
     background-color: blanchedalmond;
+  }
+}
+
+@keyframes appLogoSpin {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  20% {
+    transform: rotate(0);
+  }
+
+  40% {
+    transform: rotate(20deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-20deg);
   }
 }

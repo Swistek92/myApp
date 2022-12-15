@@ -20,11 +20,21 @@ a {
 body {
   font-family: "Lato", sans-serif;
   box-sizing: border-box;
-  background-color: #333;
+  /* background-color: #333; */
   line-height: 1.7;
 }
 
 html {
   font-size: 62.5%;
   /* //1 rem = 10px; 10px/16px = 62.5% */
+}
+
+[data-theme="dark"] body {
+  color: #fff;
+  background-color: #333;
+}
+
+[data-theme="light"] body {
+  background-color: #fff;
+  color: #000;
 }

@@ -9,7 +9,7 @@ import React, { useEffect } from "react";
 import sendEmailMutation from "../../utils/Mutations/sendEmailMutation";
 import { useState } from "react";
 
-import Button from "../Components/Button/Button";
+import Button from "../Components/Buttons/Button";
 import Input from "../Components/Input/Input";
 import Recaptcha from "../Components/ReCaptcha/v2/RecaptchaV2";
 import { successToast, infoToast, errorToast } from "../../utils/Toasts/Toast";

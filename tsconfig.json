@@ -33,7 +33,8 @@
     "types.d.ts",
     ".next/types/**/*.ts",
     "app/Components/Header/Header.jsx",
-    "app/user/layout.jsx"
+    "app/user/layout.jsx",
+    "app/Components/Buttons/DarkModeButton.jsx"
   ],
   "exclude": ["node_modules"]
 }

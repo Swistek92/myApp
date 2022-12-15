@@ -17,11 +17,8 @@ const Header = () => {
         alt='img'
       />
       <div className={styles.logoBox}>
-        <p className={styles.logo}>
-          <Image src={logo} width={100} height={100} />
-
-          {/* <span>&#9774;</span> */}
-        </p>
+        {/* <p className={styles.logo}>
+          <Image src={logo} width={100} height={100} />        </p> */}
       </div>
       <div className={styles.textBox}>
         <h1 className={styles.heading}>

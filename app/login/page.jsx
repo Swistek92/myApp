@@ -7,10 +7,12 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import Input from "../Components/Input/Input";
 import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
-import Button from "../Components/Button/Button";
+import Button from "../Components/Buttons/Button";
 import loginValidationSchema from "../../utils/Validators/loginVaidationSchema";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import Image from "next/image";
+
 const LoginForm = () => {
   const router = useRouter();
   const [validateError, setValidateError] = useState("");
@@ -69,8 +71,28 @@ const LoginForm = () => {
           touched={touched.password}
           error={errors.password}
         />
-        <Button type='submit'>Submit</Button>{" "}
+        <Button type='submit'>Submit</Button>
       </form>
+
+      <div className={styles.link}>
+        <button
+          onClick={() =>
+            signIn("facebook", {
+              // redirect: false,
+              callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
+            })
+          }
+        >
+          <Image
+            width={30}
+            height={30}
+            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIC3Dk7wwRXTMEnvlCly_wS0mH8cvBffbLuWJoVGob&s'
+            alt='profile img'
+            className={styles.fbLogo}
+          />
+          login with facebook
+        </button>
+      </div>
       <div className={styles.link}>
         <Link href={"/register"}>Do you like register ? </Link>
       </div>

@@ -11,7 +11,7 @@ import Input from "../Components/Input/Input";
 import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
 import ReCAPTCHA from "react-google-recaptcha";
 import RecaptchaComponent from "../Components/ReCaptcha/v2/RecaptchaV2";
-import Button from "../Components/Button/Button";
+import Button from "../Components/Buttons/Button";
 import Link from "next/link";
 
 const SignupForm = () => {

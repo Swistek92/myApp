@@ -1,5 +1,7 @@
 "use client";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { SessionProvider } from "next-auth/react";
+import { ThemeProvider } from "next-themes";
 
 import {
   useQuery,
@@ -11,13 +13,15 @@ import {
 
 const queryClient = new QueryClient();
 
-const ReactQueryWrappper = ({ children }) => {
+const Wrappers = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      {children}
+      <SessionProvider>
+        <ThemeProvider enableSystem={true}>{children}</ThemeProvider>
+      </SessionProvider>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 };
 
-export default ReactQueryWrappper;
+export default Wrappers;

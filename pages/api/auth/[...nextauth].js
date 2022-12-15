@@ -1,23 +1,24 @@
 import NextAuth from "next-auth";
-// import Providers from "next-auth/providers";
-import { errorMonitor } from "nodemailer/lib/xoauth2";
 import connectDB from "../../../utils/connectDB";
 import Users from "./../../../models/userModel";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare, hash } from "bcryptjs";
+import FacebookProvider from "next-auth/providers/facebook";
 
 export default NextAuth({
   session: { strategy: "jwt" },
 
   providers: [
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    }),
     CredentialsProvider({
       async authorize(credentials, req) {
         const client = await connectDB();
         const user = await Users.findOne({ email: credentials.email }).select(
           "+password"
         );
-
-        // console.log("login logic user", user);
 
         if (!user) {
           throw new Error("no user found");
@@ -46,7 +47,6 @@ export default NextAuth({
       return baseUrl;
     },
     async session({ session, token }) {
-      // console.log("CALLBACKS session", props);
       const user = await Users.findOne({ email: session.user.email });
 
       if (session.user) {
@@ -59,5 +59,6 @@ export default NextAuth({
       return token;
     },
   },
+
   secret: process.env.JWT_SECRET,
 });

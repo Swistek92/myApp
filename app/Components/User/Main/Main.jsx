@@ -1,6 +1,6 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Button from "../../Button/Button";
+import Button from "../../Buttons/Button";
 import logout from "../../../../utils/Authentications/Logout";
 const Main = ({ session }) => {
   const user = session.user;

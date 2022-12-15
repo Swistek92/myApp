@@ -3,6 +3,13 @@ const nextConfig = {
     appDir: true,
   },
   images: {
+    domains: [
+      "links.papareact.com",
+      "i.dailymail.co.uk",
+      "static.independent.co.uk",
+      "encrypted-tbn0.gstatic.com",
+    ],
+
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },

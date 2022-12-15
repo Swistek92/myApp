@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import Input from "../../Input/Input";
 // import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
-import Button from "../../Button/Button";
+import Button from "../../Buttons/Button";
 import changePasswordValidationSchema from "../../../../utils/Validators/changePasswordValidationSchema";
 import { signIn } from "next-auth/react";
 const ChangePassword = () => {
