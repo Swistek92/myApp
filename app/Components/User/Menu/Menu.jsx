@@ -13,6 +13,9 @@ const Menu = () => {
           <li>
             <Link href='/user/changepassword'> change password</Link>
           </li>
+          <li>
+            <Link href='/user/serv'> serv serv</Link>
+          </li>
           {/* <li>
             <Link href='/contact'> Contact</Link>
           </li>
