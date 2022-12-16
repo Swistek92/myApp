@@ -4,8 +4,9 @@ import Users from "./../../../models/userModel";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare, hash } from "bcryptjs";
 import FacebookProvider from "next-auth/providers/facebook";
+import jwt from "jsonwebtoken";
 
-export default NextAuth({
+export default authOptions({
   session: { strategy: "jwt" },
 
   providers: [
@@ -63,5 +64,13 @@ export default NextAuth({
   secret: process.env.JWT_SECRET,
   pages: {
     signIn: "/auth/signin",
+  },
+  jwt: {
+    async encode({ secret, token }) {
+      return jwt.sign(token, secret);
+    },
+    async decode({ secret, token }) {
+      return jwt.verify(token, secret);
+    },
   },
 });
