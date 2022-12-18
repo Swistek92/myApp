@@ -11,7 +11,9 @@ import Logout from "../../../utils/Authentications/Logout";
 import DarkModeButton from "../Buttons/DarkMode/DarkModeButton";
 import logo from "../../../public/logo.png";
 import Image from "next/image";
-const Header = ({ session }) => {
+import { useSession } from "next-auth/react";
+const Header = () => {
+  const { data: session, status } = useSession();
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
