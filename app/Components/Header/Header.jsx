@@ -17,7 +17,7 @@ const Header = ({ session }) => {
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
   console.log("header", session);
-
+  console.log("build it");
   return (
     <>
       <div className={styles.container}>
