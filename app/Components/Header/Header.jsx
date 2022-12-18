@@ -6,17 +6,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import Logout from "../../../utils/Authentications/Logout";
 import DarkModeButton from "../Buttons/DarkMode/DarkModeButton";
 import logo from "../../../public/logo.png";
 import Image from "next/image";
-const Header = () => {
+const Header = ({ session }) => {
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
-  const { data: session, status } = useSession();
-  console.log(session);
+  // const { data: session, status } = useSession();
+  console.log("header", session);
 
   return (
     <>
@@ -56,7 +56,7 @@ const Header = () => {
               {!session && (
                 <>
                   <li>
-                    <Link href='/login'> login</Link>
+                    <Link href='/auth/signin'> login</Link>
                   </li>
                   <li>
                     <Link href='/register'> register</Link>

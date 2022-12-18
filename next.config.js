@@ -8,6 +8,7 @@ const nextConfig = {
       "i.dailymail.co.uk",
       "static.independent.co.uk",
       "encrypted-tbn0.gstatic.com",
+      "platform-lookaside.fbsbx.com",
     ],
 
     dangerouslyAllowSVG: true,

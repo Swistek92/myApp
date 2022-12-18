@@ -10,10 +10,9 @@ const sendWellcomeEmail = ({ email, name }) => {
       pass: process.env.PASSWORD,
     },
   });
-
   const options = {
-    from: "kontakt@swistoklik.pl",
-    to: "swistekxd@gmail.com",
+    from: "swistoklik@outlook.com",
+    to: email,
     subject: `witaj ${name}  na   Świstoklik.pl!`,
     html: `
     <div>
