@@ -16,11 +16,13 @@ import loginValidationSchema from "../../../utils/Validators/loginVaidationSchem
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-
+import { useSession } from "next-auth/react";
 const LoginForm = () => {
   const router = useRouter();
   const [validateError, setValidateError] = useState("");
   const [isLogin, setIsLogin] = useState(false);
+  const { data: session, status } = useSession();
+
   const { touched, errors, handleChange, values, handleSubmit } = useFormik({
     initialValues: {
       email: "",
@@ -39,7 +41,7 @@ const LoginForm = () => {
         setValidateError(result.error);
       }
 
-      if (result.ok) {
+      if (session) {
         router.push("/");
         setIsLogin(true);
       }

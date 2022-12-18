@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
+    mongoose.set("strictQuery", true);
+
     const db = await mongoose.connect(databaseUrl);
 
     console.log("connected db");

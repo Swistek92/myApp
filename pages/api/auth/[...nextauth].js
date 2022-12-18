@@ -20,12 +20,14 @@ export default NextAuth({
           "+password"
         );
 
+        console.log("providers, user???", user);
         if (!user) {
           throw new Error("no user found");
         }
 
         const compare1 = await compare(credentials.password, user.password);
 
+        console.log("pass compare", compare1);
         if (!compare1) {
           throw new Error("bad password ");
         }
