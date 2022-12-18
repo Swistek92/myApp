@@ -5,10 +5,14 @@ import styles from "./styles.module.css";
 import { useRouter } from "next/navigation";
 
 import React, { useEffect, useRef, useState } from "react";
-import Input from "../Components/Input/Input";
-import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
-import Button from "../Components/Buttons/Button";
-import loginValidationSchema from "../../utils/Validators/loginVaidationSchema";
+import Input from "../../Components/Input/Input";
+import {
+  infoToast,
+  successToast,
+  errorToast,
+} from "../../../utils/Toasts/Toast";
+import Button from "../../Components/Buttons/Button";
+import loginValidationSchema from "../../../utils/Validators/loginVaidationSchema";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
