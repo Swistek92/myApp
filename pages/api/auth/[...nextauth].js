@@ -30,11 +30,6 @@ export default NextAuth({
           throw new Error("bad password ");
         }
 
-        console.log("return objec", {
-          name: user.name,
-          email: user.email,
-          role: user.role,
-        });
         return { name: user.name, email: user.email, role: user.role };
       },
     }),
@@ -63,6 +58,5 @@ export default NextAuth({
   secret: process.env.JWT_SECRET,
   pages: {
     signIn: "/auth/signin",
-    signIn: "/login",
   },
 });
