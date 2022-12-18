@@ -86,7 +86,7 @@ const LoginForm = () => {
           onClick={() =>
             signIn("facebook", {
               redirect: false,
-              // callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
+              callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
             })
           }
         >
