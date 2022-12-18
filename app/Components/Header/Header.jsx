@@ -6,18 +6,16 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { useSession } from "next-auth/react";
 import Logout from "../../../utils/Authentications/Logout";
 import DarkModeButton from "../Buttons/DarkMode/DarkModeButton";
 import logo from "../../../public/logo.png";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
-const Header = () => {
-  const { data: session, status } = useSession();
+// import { useSession } from "next-auth/react";
+const Header = ({ session }) => {
+  // const { data: session, status } = useSession();
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
-  // const { data: session, status } = useSession();
   console.log("header", session);
 
   return (
