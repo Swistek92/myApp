@@ -44,14 +44,14 @@ const LoginForm = () => {
     },
   });
 
-  if (status === "loading") {
-    return <p>loading...</p>;
-  }
-
-  if (status === "authenticated") {
-    setIsLogin(true);
-  }
   useEffect(() => {
+    if (status === "loading") {
+      return <p>loading...</p>;
+    }
+
+    if (status === "authenticated") {
+      setIsLogin(true);
+    }
     if (validateError) {
       errorToast(validateError);
     }
@@ -59,7 +59,7 @@ const LoginForm = () => {
       successToast("are you login in! ");
       router.push("/");
     }
-  }, [validateError, isLogin]);
+  }, [validateError, isLogin, status]);
 
   console.log(process.env.VERCEL_URL);
   return (
