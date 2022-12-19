@@ -90,7 +90,7 @@ const LoginForm = () => {
           onClick={() =>
             signIn("facebook", {
               redirect: false,
-              callbackUrl: "https://swistoklik.pl" || "http://localhost:3000",
+              // callbackUrl: "https://swistoklik.pl/" || "http://localhost:3000",
             })
           }
         >
