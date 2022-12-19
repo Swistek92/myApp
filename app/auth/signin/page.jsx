@@ -16,7 +16,10 @@ import loginValidationSchema from "../../../utils/Validators/loginVaidationSchem
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 const LoginForm = () => {
+  const { data: session, status } = useSession();
+
   const router = useRouter();
   const [validateError, setValidateError] = useState("");
   const [isLogin, setIsLogin] = useState(false);
@@ -39,7 +42,8 @@ const LoginForm = () => {
         setValidateError(result.error);
       }
 
-      if (result.ok) {
+      if (session) {
+        console.log(session);
         console.log(result);
         setTimeout(() => {
           router.push("/");
