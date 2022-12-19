@@ -41,18 +41,21 @@ const LoginForm = () => {
       if (result.error) {
         setValidateError(result.error);
       }
-
-      if (session) {
-        console.log(session);
-        console.log(result);
-        setTimeout(() => {
-          router.push("/");
-        }, 500);
-        setIsLogin(true);
-      }
     },
   });
 
+  if (status === "loading") {
+    return <p>loading...</p>;
+  }
+
+  if (status === "authenticated") {
+    console.log(session);
+    console.log(result);
+    setTimeout(() => {
+      router.push("/");
+    }, 500);
+    setIsLogin(true);
+  }
   useEffect(() => {
     if (validateError) {
       errorToast(validateError);
