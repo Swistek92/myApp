@@ -58,6 +58,7 @@ const LoginForm = () => {
     }
   }, [validateError, isLogin]);
 
+  console.log(process.env.VERCEL_URL);
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -86,7 +87,7 @@ const LoginForm = () => {
           onClick={() =>
             signIn("facebook", {
               redirect: false,
-              callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
+              callbackUrl: "https://swistoklik.pl" || "http://localhost:3000",
             })
           }
         >
