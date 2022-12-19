@@ -25,7 +25,7 @@ const Header = ({ session }) => {
       if (!session1) {
         session1 = session;
       }
-      if (!sessionFront) {
+      if (!session1) {
         session1 = sessionFront;
       }
     }

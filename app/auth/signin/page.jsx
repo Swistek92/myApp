@@ -86,23 +86,7 @@ const LoginForm = () => {
       </form>
 
       <div className={styles.link}>
-        <button
-          onClick={() =>
-            signIn("facebook", {
-              redirect: false,
-              // callbackUrl: "https://swistoklik.pl/" || "http://localhost:3000",
-            })
-          }
-        >
-          <Image
-            width={30}
-            height={30}
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIC3Dk7wwRXTMEnvlCly_wS0mH8cvBffbLuWJoVGob&s'
-            alt='profile img'
-            className={styles.fbLogo}
-          />
-          login with facebook
-        </button>
+        <Link href='/auth/signin/facebook'> login fb</Link>
       </div>
       <div className={styles.link}>
         <Link href={"/register"}>Do you like register ? </Link>
