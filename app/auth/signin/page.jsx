@@ -39,7 +39,7 @@ const LoginForm = () => {
       });
 
       if (result.error) {
-        setValidateError(result.error);
+        return setValidateError(result.error);
       }
     },
   });
@@ -49,11 +49,6 @@ const LoginForm = () => {
   }
 
   if (status === "authenticated") {
-    console.log(session);
-    console.log(result);
-    setTimeout(() => {
-      router.push("/");
-    }, 500);
     setIsLogin(true);
   }
   useEffect(() => {
@@ -62,6 +57,7 @@ const LoginForm = () => {
     }
     if (isLogin) {
       successToast("are you login in! ");
+      router.push("/");
     }
   }, [validateError, isLogin]);
 
