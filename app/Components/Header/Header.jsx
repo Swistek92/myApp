@@ -16,7 +16,7 @@ const Header = ({ session }) => {
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
-  let session1 = session;
+  let session1 = sessionFront;
 
   console.log("header", session, sessionFront);
   console.log(session1, "session1");
