@@ -10,14 +10,27 @@ import Logout from "../../../utils/Authentications/Logout";
 import DarkModeButton from "../Buttons/DarkMode/DarkModeButton";
 import logo from "../../../public/logo.png";
 import Image from "next/image";
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 const Header = ({ session }) => {
-  // const { data: session, status } = useSession();
+  const { data: sessionFront, status } = useSession();
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
-  console.log("header", session);
-  console.log("build it");
+  let session1 = session;
+
+  console.log("header", session, sessionFront);
+  console.log(session1, "session1");
+  useEffect(() => {
+    if (!session1) {
+      if (!session1) {
+        session1 = session;
+      }
+      if (!sessionFront) {
+        session1 = sessionFront;
+      }
+    }
+  }, [session, sessionFront]);
+
   return (
     <header>
       <div className={styles.container}>
@@ -53,7 +66,7 @@ const Header = ({ session }) => {
               <li>
                 <Link href='/contact'> Contact</Link>
               </li>
-              {!session && (
+              {!session1 && (
                 <>
                   <li>
                     <Link href='/auth/signin'> login</Link>
@@ -64,17 +77,17 @@ const Header = ({ session }) => {
                 </>
               )}
 
-              {session && (
+              {session1 && (
                 <li>
                   <Link href='/user'> user</Link>
                 </li>
               )}
-              {session && session.user.role === "admin" && (
+              {session1 && session1.user.role === "admin" && (
                 <li>
                   <Link href='/admin'> admin</Link>
                 </li>
               )}
-              {session && (
+              {session1 && (
                 <li className={styles.logout} onClick={() => Logout()}>
                   <Link href='#'>Logout</Link>
                 </li>
