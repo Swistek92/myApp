@@ -19,7 +19,7 @@ const Header = ({ session }) => {
   console.log("header", session);
   console.log("build it");
   return (
-    <>
+    <header>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Image src={logo} width={100} height={100} />
@@ -95,7 +95,7 @@ const Header = ({ session }) => {
           theme='dark'
         />
       </div>
-    </>
+    </header>
   );
 };
 
