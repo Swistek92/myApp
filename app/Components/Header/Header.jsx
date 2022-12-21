@@ -1,11 +1,11 @@
 "use client";
 
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./Header.module.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Logout from "../../../utils/Authentications/Logout";
 import DarkModeButton from "../Buttons/DarkMode/DarkModeButton";
 import logo from "../../../public/logo.png";
@@ -34,6 +34,15 @@ const Header = () => {
   //     }
   //   }
   // }, [session, sessionFront]);
+  if (session) {
+    return (
+      <ul>
+        <li>
+          <Link href='/user'> user</Link>
+        </li>
+      </ul>
+    );
+  }
 
   return (
     <header>
