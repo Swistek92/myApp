@@ -7,7 +7,7 @@ import { unstable_getServerSession } from "next-auth";
 import NextAuth from "pages/api/auth/[...nextauth]";
 
 export default async function RootLayout({ children, ...props }) {
-  let session = (session = await unstable_getServerSession(NextAuth));
+  let session = await unstable_getServerSession(NextAuth);
 
   return (
     <html lang='en'>
