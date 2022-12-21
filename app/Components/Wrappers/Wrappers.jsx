@@ -13,10 +13,10 @@ import {
 
 const queryClient = new QueryClient();
 
-const Wrappers = ({ session, children }) => {
+const Wrappers = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <SessionProvider session={session}>
+      <SessionProvider>
         <ThemeProvider enableSystem={true}>{children}</ThemeProvider>
       </SessionProvider>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}

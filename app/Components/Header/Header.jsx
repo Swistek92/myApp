@@ -11,25 +11,29 @@ import DarkModeButton from "../Buttons/DarkMode/DarkModeButton";
 import logo from "../../../public/logo.png";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-const Header = ({ session }) => {
-  const { data: sessionFront, status } = useSession();
+const Header = () => {
+  const { data: session, status } = useSession();
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
-  let session1 = sessionFront;
+  // let session1 = sessionFront;
 
-  console.log("header", session, sessionFront);
-  console.log(session1, "session1");
-  useEffect(() => {
-    if (!session1) {
-      if (!session1) {
-        session1 = session;
-      }
-      if (!session1) {
-        session1 = sessionFront;
-      }
-    }
-  }, [session, sessionFront]);
+  // useEffect(() => {
+  //   console.log(
+  //     "header session backend",
+  //     session,
+  //     "header session front",
+  //     sessionFront
+  //   );
+  //   if (!session1) {
+  //     if (!session1) {
+  //       session1 = session;
+  //     }
+  //     if (!session1) {
+  //       session1 = sessionFront;
+  //     }
+  //   }
+  // }, [session, sessionFront]);
 
   return (
     <header>
@@ -66,7 +70,7 @@ const Header = ({ session }) => {
               <li>
                 <Link href='/contact'> Contact</Link>
               </li>
-              {!session1 && (
+              {!session && (
                 <>
                   <li>
                     <Link href='/auth/signin'> login</Link>
@@ -77,17 +81,17 @@ const Header = ({ session }) => {
                 </>
               )}
 
-              {session1 && (
+              {session && (
                 <li>
                   <Link href='/user'> user</Link>
                 </li>
               )}
-              {session1 && session1.user.role === "admin" && (
+              {session && session.user.role === "admin" && (
                 <li>
                   <Link href='/admin'> admin</Link>
                 </li>
               )}
-              {session1 && (
+              {session && (
                 <li className={styles.logout} onClick={() => Logout()}>
                   <Link href='#'>Logout</Link>
                 </li>

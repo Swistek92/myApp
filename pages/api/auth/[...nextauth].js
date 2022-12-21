@@ -4,11 +4,17 @@ import Users from "./../../../models/userModel";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare, hash } from "bcryptjs";
 import FacebookProvider from "next-auth/providers/facebook";
+import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
   session: { strategy: "jwt" },
 
   providers: [
+    GoogleProvider({
+      clientId:
+        "533014022875-q81hpv7o5gb6ddtioegu35j5gn8bqjra.apps.googleusercontent.com",
+      clientSecret: "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",
+    }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
@@ -44,10 +50,12 @@ export default NextAuth({
       return baseUrl;
     },
     async session({ session, token }) {
-      const user = await Users.findOne({ email: session.user.email });
+      if (session) {
+        const user = await Users.findOne({ email: session.user.email });
 
-      if (session.user) {
-        session.user.role = user.role;
+        if (session.user) {
+          session.user.role = user.role;
+        }
       }
 
       return session;

@@ -13,7 +13,7 @@ export default async function RootLayout({ children, ...props }) {
     <html lang='en'>
       <head />
       <body>
-        <Wrappers session={session}>
+        <Wrappers>
           <Header session={session} />
           <main className={styles.main}>{children}</main>
         </Wrappers>
