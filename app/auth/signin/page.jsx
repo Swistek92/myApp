@@ -39,29 +39,23 @@ const LoginForm = () => {
       });
 
       if (result.error) {
+        errorToast(result.error);
         return setValidateError(result.error);
+      }
+      if (result.ok) {
+        router.push("/");
       }
     },
   });
 
-  useEffect(() => {
-    if (status === "loading") {
-      return <p>loading...</p>;
-    }
+  if (status === "loading") {
+    return <p>loading...</p>;
+  }
+  if (status === "authenticated") {
+    successToast("are you login in! ");
 
-    if (status === "authenticated") {
-      setIsLogin(true);
-    }
-    if (validateError) {
-      errorToast(validateError);
-    }
-    if (isLogin) {
-      successToast("are you login in! ");
-      router.push("/");
-    }
-  }, [validateError, isLogin, status]);
-
-  console.log(process.env.VERCEL_URL);
+    return <h1>are you login!</h1>;
+  }
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>

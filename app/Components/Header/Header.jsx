@@ -34,15 +34,6 @@ const Header = () => {
   //     }
   //   }
   // }, [session, sessionFront]);
-  if (session) {
-    return (
-      <ul>
-        <li>
-          <Link href='/user'> user</Link>
-        </li>
-      </ul>
-    );
-  }
 
   return (
     <header>
