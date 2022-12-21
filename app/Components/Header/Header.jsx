@@ -16,24 +16,6 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
-  // let session1 = sessionFront;
-
-  // useEffect(() => {
-  //   console.log(
-  //     "header session backend",
-  //     session,
-  //     "header session front",
-  //     sessionFront
-  //   );
-  //   if (!session1) {
-  //     if (!session1) {
-  //       session1 = session;
-  //     }
-  //     if (!session1) {
-  //       session1 = sessionFront;
-  //     }
-  //   }
-  // }, [session, sessionFront]);
 
   return (
     <header>
@@ -45,7 +27,6 @@ const Header = () => {
         <nav className={styles.navbar}>
           <div className={styles.brandName}>
             <span>Piotr Świstowski</span>
-            <span className={styles.peace}>&#9774;</span>
             <span className={styles.colorMode}>
               <DarkModeButton />
             </span>

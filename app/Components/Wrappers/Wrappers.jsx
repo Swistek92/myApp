@@ -17,7 +17,9 @@ const Wrappers = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider>
-        <ThemeProvider enableSystem={true}>{children}</ThemeProvider>
+        <ThemeProvider enableSystem={true} defaultTheme='dark'>
+          {children}
+        </ThemeProvider>
       </SessionProvider>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>

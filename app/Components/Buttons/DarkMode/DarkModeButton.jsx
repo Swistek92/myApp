@@ -5,22 +5,25 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import styles from "./styles.module.css";
 function DarkModeButton() {
   const [mounted, setMounted] = useState(false);
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  console.log("theme", theme);
 
   useEffect(() => {
     setMounted(true);
+    // setTheme("dark");
   }, []);
 
   if (!mounted) {
     return null;
   }
 
-  const currentTheme = theme === "system" ? systemTheme : theme;
-  console.log(currentTheme);
+  // const currentTheme = theme === "system" ? systemTheme : theme;
+  // console.log(currentTheme);
 
   return (
     <div>
-      {currentTheme === "dark" ? (
+      {theme === "dark" ? (
         <SunIcon
           // className='h-8 w-8 cursor-pointer text-yellow-500'
           className={styles.light}

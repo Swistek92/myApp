@@ -17,6 +17,8 @@ import Link from "next/link";
 import { getProviders, signIn } from "next-auth/react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import { AiFillFacebook, AiOutlineGoogle } from "react-icons/ai";
+
 const LoginForm = () => {
   const { data: session, status } = useSession();
 
@@ -78,33 +80,37 @@ const LoginForm = () => {
         />
         <Button type='submit'>Submit</Button>
       </form>
-      <div className={styles.link}>
-        <Link href='/auth/signin/facebook'> login fb</Link>
-      </div>
-      <div className={styles.link}>
-        <Link href={"/register"}>Do you like register ? </Link>
-      </div>
       <div>
-        <button
+        <Button
           onClick={() =>
             signIn("facebook", {
               callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
             })
           }
         >
-          Sign in with facebook
-        </button>
+          <h1>
+            {" "}
+            <AiFillFacebook />
+          </h1>
+          Sign in with facebook{" "}
+        </Button>
       </div>{" "}
       <div>
-        <button
+        <Button
           onClick={() =>
             signIn("google", {
               callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
             })
           }
         >
-          Sign in with google
-        </button>
+          <h3>
+            <AiOutlineGoogle />
+          </h3>
+          Sign in with google{" "}
+        </Button>
+      </div>
+      <div className={styles.link}>
+        <Link href={"/register"}>Do you like register ? </Link>
       </div>
     </div>
   );
