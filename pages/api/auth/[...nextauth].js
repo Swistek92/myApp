@@ -50,14 +50,18 @@ export default NextAuth({
       return baseUrl;
     },
     async session({ session, token }) {
-      if (session) {
-        const user = await Users.findOne({ email: session.user.email });
+      // if (session) {
+      //   const user = await Users.findOne({ email: session.user.email });
 
-        if (session.user) {
-          session.user.role = user.role;
-        }
+      //   if (session.user) {
+      //     session.user.role = user.role;
+      //   }
+      // }
+
+      // massage our session
+      if (token.role && session.user) {
+        session.user.role = token.role;
       }
-
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }) {

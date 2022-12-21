@@ -14,7 +14,7 @@ import {
 import Button from "../../Components/Buttons/Button";
 import loginValidationSchema from "../../../utils/Validators/loginVaidationSchema";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { getProviders, signIn } from "next-auth/react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 const LoginForm = () => {
@@ -84,12 +84,33 @@ const LoginForm = () => {
         />
         <Button type='submit'>Submit</Button>
       </form>
-
       <div className={styles.link}>
         <Link href='/auth/signin/facebook'> login fb</Link>
       </div>
       <div className={styles.link}>
         <Link href={"/register"}>Do you like register ? </Link>
+      </div>
+      <div>
+        <button
+          onClick={() =>
+            signIn("facebook", {
+              callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
+            })
+          }
+        >
+          Sign in with facebook
+        </button>
+      </div>{" "}
+      <div>
+        <button
+          onClick={() =>
+            signIn("google", {
+              callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
+            })
+          }
+        >
+          Sign in with google
+        </button>
       </div>
     </div>
   );
