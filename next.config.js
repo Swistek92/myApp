@@ -9,6 +9,7 @@ const nextConfig = {
       "static.independent.co.uk",
       "encrypted-tbn0.gstatic.com",
       "platform-lookaside.fbsbx.com",
+      "lh3.googleusercontent.com",
     ],
 
     dangerouslyAllowSVG: true,

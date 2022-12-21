@@ -1,8 +1,13 @@
+"use client";
 import Link from "next/link";
 import React from "react";
-
+import { useSession } from "next-auth/react";
 import styles from "./styles.module.css";
 const Menu = () => {
+  const { data: session, status } = useSession();
+  const img = session.user.image;
+  const isFb = img.includes("fbsbx");
+  const isGoogle = img.includes("google");
   return (
     <nav className={styles.menu}>
       <div className={styles.links}>
@@ -10,21 +15,11 @@ const Menu = () => {
           <li>
             <Link href='/user'> Main Menu</Link>
           </li>
-          <li>
-            <Link href='/user/changepassword'> change password</Link>
-          </li>
-          {/* <li>
-            <Link href='/user/serv'> serv serv</Link>
-          </li> */}
-          {/* <li>
-            <Link href='/contact'> Contact</Link>
-          </li>
-          <li>
-            <Link href='/login'> login</Link>
-          </li>
-          <li>
-            <Link href='/signup'> auth</Link>
-          </li> */}
+          {!isFb && !isGoogle && (
+            <li>
+              <Link href='/user/changepassword'> change password</Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>
