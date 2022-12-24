@@ -15,11 +15,11 @@ const Menu = () => {
           <li>
             <Link href='/user'> Main Menu</Link>
           </li>
-          {!isFb && !isGoogle && (
+          {/* {!isFb && !isGoogle && (
             <li>
               <Link href='/user/changepassword'> change password</Link>
             </li>
-          )}
+          )} */}
         </ul>
       </div>
     </nav>
