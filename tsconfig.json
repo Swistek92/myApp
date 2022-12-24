@@ -50,7 +50,8 @@
     "utils/sanity/urlFor.js",
     "utils/sanity/sanity.preview.js",
     "utils/sanity/sanity.client.js",
-    "theme.js"
+    "theme.js",
+    "pages/api/preview.js"
   ],
   "exclude": ["node_modules"]
 }
