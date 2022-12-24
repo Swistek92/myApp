@@ -5,6 +5,9 @@ import { useSession } from "next-auth/react";
 import styles from "./styles.module.css";
 const Menu = () => {
   const { data: session, status } = useSession();
+  if (!session) {
+    return <p>^^</p>;
+  }
   const img = session.user.image;
   const isFb = img.includes("fbsbx");
   const isGoogle = img.includes("google");
@@ -15,11 +18,11 @@ const Menu = () => {
           <li>
             <Link href='/user'> Main Menu</Link>
           </li>
-          {/* {!isFb && !isGoogle && (
+          {!isFb && !isGoogle && (
             <li>
               <Link href='/user/changepassword'> change password</Link>
             </li>
-          )} */}
+          )}
         </ul>
       </div>
     </nav>
