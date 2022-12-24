@@ -26,10 +26,10 @@ const HomePage = async () => {
         <PreviewBlogList query={query} />
       </PreviewSuspense>
     );
+    // return <p>previe mode</p>;
   }
 
   const posts = await client.fetch(query);
-  console.log(posts);
   return <BlogList posts={posts} />;
 };
 
