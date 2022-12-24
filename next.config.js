@@ -10,6 +10,7 @@ const nextConfig = {
       "encrypted-tbn0.gstatic.com",
       "platform-lookaside.fbsbx.com",
       "lh3.googleusercontent.com",
+      "cdn.sanity.io",
     ],
 
     dangerouslyAllowSVG: true,

@@ -34,7 +34,23 @@
     ".next/types/**/*.ts",
     "app/Components/Header/Header.jsx",
     "app/user/layout.jsx",
-    "app/Components/Buttons/DarkModeButton.jsx"
+    "app/Components/Buttons/DarkModeButton.jsx",
+    "app/(admin1)/[[...index]]/head.tsx",
+    "app/(admin1)/[[...index]]/loading.tsx",
+    "app/(admin1)/[[...index]]/page.tsx",
+    "app/Components/sanity/StudioNavbar.jsx",
+    "app/Components/sanity/RichTextComponents.jsx",
+    "app/Components/sanity/PreviewSuspense.jsx",
+    "app/Components/sanity/PreviewBlogList.jsx",
+    "app/Components/sanity/Logo.jsx",
+    "app/Components/sanity/Header.jsx",
+    "app/Components/sanity/ClientSideRoute.jsx",
+    "app/Components/sanity/BlogList.jsx",
+    "app/Components/sanity/Banner.jsx",
+    "utils/sanity/urlFor.js",
+    "utils/sanity/sanity.preview.js",
+    "utils/sanity/sanity.client.js",
+    "theme.js"
   ],
   "exclude": ["node_modules"]
 }
