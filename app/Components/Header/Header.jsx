@@ -11,14 +11,17 @@ import DarkModeButton from "../Buttons/DarkMode/DarkModeButton";
 import logo from "../../../public/logo.png";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 const Header = () => {
   const { data: session, status } = useSession();
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
   const closeMenu = () => setShow(false);
+  const pathname = usePathname();
+  const isStudio = pathname.startsWith("/studio");
 
   return (
-    <header>
+    <header style={{ display: isStudio && "none" }}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Image src={logo} width={100} height={100} />
