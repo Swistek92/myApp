@@ -1,4 +1,4 @@
 .img {
-  height: 40vh;
-  width: auto;
+  max-width: 80vw;
+  height: auto;
 }
