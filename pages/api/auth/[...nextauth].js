@@ -25,19 +25,20 @@ export default NextAuth({
           "+password"
         );
 
-        console.log("providers, user???", user);
         if (!user) {
           throw new Error("no user found");
         }
 
         const compare1 = await compare(credentials.password, user.password);
 
-        console.log("pass compare", compare1);
+        // console.log("pass compare", compare1);
         if (!compare1) {
           throw new Error("bad password ");
         }
 
-        return { name: user.name, email: user.email, role: user.role };
+        // console.log("RETURNING OBJECT FROM CREDENTAIL PROVIDER", user);
+
+        return user;
       },
     }),
   ],
@@ -48,24 +49,36 @@ export default NextAuth({
     async redirect({ url, baseUrl }) {
       return baseUrl;
     },
-    async session({ session, token }) {
-      // if (session) {
-      //   const user = await Users.findOne({ email: session.user.email });
+    async session({ session, token, user }) {
+      // console.log("SESSION ", session, token);
 
-      //   if (session.user) {
-      //     session.user.role = user.role;
-      //   }
-      // }
+      // session.user.role = user.role;
+      if (session) {
+        const user = await Users.findOne({ email: session.user.email });
 
-      // massage our session
-      if (token.role && session.user) {
-        session.user.role = token.role;
+        if (session.user) {
+          session.user.role = user.role;
+        }
       }
+
+      // if (token.role && session.user) {
+      //   session.user.role = token.role;
+      // }
+      // return session;
+      // massage our session
+      // if (token.role && session.user) {
+      //   session.user.role = token.role;
+      // }
       return session;
     },
-    async jwt({ token, user, account, profile, isNewUser }) {
-      return token;
-    },
+  },
+  async jwt({ token, user }) {
+    console.log("JWT", token);
+    if (user) {
+      // user is only given the first time but when you write tokens they stick around
+      token.role = user.role;
+    }
+    return token;
   },
 
   secret: process.env.JWT_SECRET,

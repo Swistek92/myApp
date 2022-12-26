@@ -28,7 +28,6 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ["user", "guide", "lead-guide", "admin"],
     default: "user",
   },
   passwordConfirm: {
@@ -41,6 +40,11 @@ const userSchema = new Schema({
       },
       message: "password are not the same",
     },
+  },
+  image: {
+    type: String,
+    default:
+      "https://res.cloudinary.com/dftyei6oe/image/upload/v1660256056/natours/wyjejsjklocucwfyajmb.jpg",
   },
 });
 

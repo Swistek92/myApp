@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import styles from "./styles.module.css";
 const Menu = () => {
@@ -8,9 +8,7 @@ const Menu = () => {
   if (!session) {
     return <p>^^</p>;
   }
-  const img = session.user.image;
-  const isFb = img.includes("fbsbx");
-  const isGoogle = img.includes("google");
+
   return (
     <nav className={styles.menu}>
       <div className={styles.links}>
@@ -18,7 +16,7 @@ const Menu = () => {
           <li>
             <Link href='/user'> Main Menu</Link>
           </li>
-          {!isFb && !isGoogle && (
+          {session.user.role && (
             <li>
               <Link href='/user/changepassword'> change password</Link>
             </li>

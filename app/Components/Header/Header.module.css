@@ -8,6 +8,11 @@
   color: #000;
 }
 
+/* .header[.links[required]] */
+
+.header[required] {
+  display: none;
+}
 .navbar {
   display: flex;
   justify-content: space-between;

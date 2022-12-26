@@ -21,7 +21,7 @@ const Header = () => {
   const isStudio = pathname.startsWith("/studio");
 
   return (
-    <header style={{ display: isStudio && "none" }}>
+    <header className={styles.header} required={isStudio}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Image src={logo} width={100} height={100} />

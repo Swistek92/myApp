@@ -11,6 +11,7 @@ const nextConfig = {
       "platform-lookaside.fbsbx.com",
       "lh3.googleusercontent.com",
       "cdn.sanity.io",
+      "res.cloudinary.com",
     ],
 
     dangerouslyAllowSVG: true,
