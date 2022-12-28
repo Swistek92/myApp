@@ -38,6 +38,10 @@ const Header = ({ showModal }) => {
       });
   }
 
+  if (status === "authenticated") {
+    console.log(session);
+  }
+
   return (
     <div
       required={show}

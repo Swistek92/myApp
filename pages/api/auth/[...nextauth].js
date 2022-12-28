@@ -51,30 +51,30 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      // console.log(account, user);
+      console.log("credentials");
       return true;
     },
     async redirect({ url, baseUrl }) {
       return baseUrl;
     },
     async session({ session, token }) {
-      console.log("SESSION ", session, token);
-      console.log("TOKEN ROLE", token.role);
+      // console.log("SESSION ", session, token);
+      // console.log("TOKEN ROLE", token.role);
       // if (session.image.includes("fsbx")) {
       //   return session;
       // }
       // session.user.role = user.role;
-      // if (session) {
-      //   const user = await Users.findOne({ email: session.user.email });
+      if (session) {
+        if (!session.user.image.includes("cloudinary")) {
+          return session;
+        }
+        const user = await Users.findOne({ email: session.user.email });
 
-      //   if (session.user) {
-      //     session.user.role = user.role;
-      //   }
-      // }
-
-      if (token.role) {
-        session.user.role = token.role;
+        if (session.user) {
+          session.user.role = user.role;
+        }
       }
+
       // return session;
       // massage our session
       // if (token.role && session.user) {
