@@ -8,7 +8,8 @@ const Modal = ({ showModal }) => {
     <div className={styles.container}>
       {" "}
       {/* <Register /> */}
-      <Login />
+      {/* <Login /> */}
+      <p>lalal</p>
     </div>
   );
 };
