@@ -13,6 +13,13 @@ export default NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
@@ -36,7 +43,7 @@ export default NextAuth({
           throw new Error("bad password ");
         }
 
-        // console.log("RETURNING OBJECT FROM CREDENTAIL PROVIDER", user);
+        console.log("RETURNING OBJECT FROM CREDENTAIL PROVIDER", user);
 
         return user;
       },
@@ -44,26 +51,30 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
+      // console.log(account, user);
       return true;
     },
     async redirect({ url, baseUrl }) {
       return baseUrl;
     },
-    async session({ session, token, user }) {
-      // console.log("SESSION ", session, token);
-
-      // session.user.role = user.role;
-      if (session) {
-        const user = await Users.findOne({ email: session.user.email });
-
-        if (session.user) {
-          session.user.role = user.role;
-        }
-      }
-
-      // if (token.role && session.user) {
-      //   session.user.role = token.role;
+    async session({ session, token }) {
+      console.log("SESSION ", session, token);
+      console.log("TOKEN ROLE", token.role);
+      // if (session.image.includes("fsbx")) {
+      //   return session;
       // }
+      // session.user.role = user.role;
+      // if (session) {
+      //   const user = await Users.findOne({ email: session.user.email });
+
+      //   if (session.user) {
+      //     session.user.role = user.role;
+      //   }
+      // }
+
+      if (token.role) {
+        session.user.role = token.role;
+      }
       // return session;
       // massage our session
       // if (token.role && session.user) {
@@ -73,7 +84,6 @@ export default NextAuth({
     },
   },
   async jwt({ token, user }) {
-    console.log("JWT", token);
     if (user) {
       // user is only given the first time but when you write tokens they stick around
       token.role = user.role;

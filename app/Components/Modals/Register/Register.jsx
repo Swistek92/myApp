@@ -53,7 +53,6 @@ const Register = () => {
     }
 
     if (isError) {
-      console.log(error.response.data.data.error.errors);
       const errorMSg = error.response.data.data.error.errors.name.message
         ? error.response.data.data.error.errors.name.message
         : "smth went wrong";

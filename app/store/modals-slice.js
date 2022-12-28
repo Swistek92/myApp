@@ -17,7 +17,6 @@ export const modalSlice = createSlice({
     },
     hideLogin(state) {
       state.showLogin = false;
-      console.log(state);
     },
     showRegister(state) {
       state.showRegister = true;
