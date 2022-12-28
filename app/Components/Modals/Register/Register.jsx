@@ -1,20 +1,22 @@
 "use client";
 
 import { useFormik } from "formik";
-import styles from "./signup.module.css";
+import styles from "./styles.module.css";
 import { useRouter } from "next/navigation";
-
 import React, { useEffect, useRef, useState } from "react";
-import signupMutation from "../../utils/Mutations/signupMutation";
-import signupValidationSchema from "../../utils/Validators/signupValidationSchema";
-import Input from "../Components/Input/Input";
-import { infoToast, successToast, errorToast } from "../../utils/Toasts/Toast";
-import ReCAPTCHA from "react-google-recaptcha";
-import RecaptchaComponent from "../Components/ReCaptcha/v2/RecaptchaV2";
-import Button from "../Components/Buttons/Button";
+import signupMutation from "../../../../utils/Mutations/signupMutation";
+import signupValidationSchema from "../../../../utils/Validators/signupValidationSchema";
+import Input from "../../Input/Input";
+import {
+  infoToast,
+  successToast,
+  errorToast,
+} from "../../../../utils/Toasts/Toast";
+import RecaptchaComponent from "../../ReCaptcha/v2/RecaptchaV2";
+import Button from "../../Buttons/Button";
 import Link from "next/link";
 
-const SignupForm = () => {
+const Register = () => {
   const { mutate, isLoading, isError, isSuccess, error } = signupMutation();
   const router = useRouter();
   const [recaptchaError, setRecaptchaError] = useState("");
@@ -105,13 +107,12 @@ const SignupForm = () => {
           isError={isError}
         />
         <Button type='submit'>Submit</Button>{" "}
+        <div className={styles.link}>
+          <Link href={"/login"}>do you like login? </Link>
+        </div>
       </form>
-
-      <div className={styles.link}>
-        <Link href={"/login"}>do you like login? </Link>
-      </div>
     </div>
   );
 };
 
-export default SignupForm;
+export default Register;

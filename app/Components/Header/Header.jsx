@@ -12,7 +12,10 @@ import logo from "../../../public/logo.png";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
-const Header = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { modalActions } from "../../store/modals-slice";
+
+const Header = ({ showModal }) => {
   const { data: session, status } = useSession();
   const [show, setShow] = useState(false);
   const toggleMenu = () => setShow((prev) => !prev);
@@ -20,83 +23,112 @@ const Header = () => {
   const pathname = usePathname();
   const isStudio = pathname.startsWith("/studio");
 
+  const showLogin = () => showModal("login");
+  const showRegister = () => showModal("register");
+  const showContact = () => showModal("contact");
+
+  if (show) {
+    window.addEventListener("click", (e) => {
+      const header = document.getElementById("headerContainer");
+
+      if (e.target == header) {
+        setShow(false);
+      }
+    });
+  }
+
   return (
-    <header className={styles.header} required={isStudio}>
-      <div className={styles.container}>
-        <div className={styles.logo}>
-          <Image src={logo} width={100} height={100} />
+    <div
+      required={show}
+      id='headerContainer'
+      className={styles.headerContainer}
+    >
+      <header className={styles.header} required={isStudio}>
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <Image src={logo} width={100} height={100} />
+          </div>
+
+          <nav className={styles.navbar}>
+            <button onClick={() => showLogin()}>SHOW MODAL</button>
+
+            <div className={styles.brandName}>
+              <span>Piotr Świstowski</span>
+              <span className={styles.colorMode}>
+                <DarkModeButton />
+              </span>
+            </div>
+            <div className={styles.darkmodeBtn}></div>
+
+            <a
+              href='#'
+              className={styles.toggleBtn}
+              onClick={() => toggleMenu()}
+            >
+              <span className={styles.bar}></span>
+              <span className={styles.bar}></span>
+              <span className={styles.bar}></span>
+            </a>
+
+            <div className={styles.links} required={show}>
+              <ul onClick={() => closeMenu()}>
+                <li>
+                  <Link href='/'> Home</Link>
+                </li>
+                <li>
+                  <Link href='/posts'> Posts</Link>
+                </li>
+                <li>
+                  <Link href='/Tours'> tours</Link>
+                </li>
+
+                <li>
+                  <Link href='/contact'> Contact</Link>
+                </li>
+                {!session && (
+                  <>
+                    <li>
+                      <Link href='/auth/signin'> login</Link>
+                    </li>
+                    <li>
+                      <Link href='/register'> register</Link>
+                    </li>
+                  </>
+                )}
+
+                {session && (
+                  <li>
+                    <Link href='/user'> user</Link>
+                  </li>
+                )}
+                {session && session.user.role === "admin" && (
+                  <li>
+                    <Link href='/admin'> admin</Link>
+                  </li>
+                )}
+                {session && (
+                  <li className={styles.logout} onClick={() => Logout()}>
+                    <Link href='#'>Logout</Link>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </nav>
+          <ToastContainer
+            position='top-center'
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme='dark'
+          />
         </div>
-
-        <nav className={styles.navbar}>
-          <div className={styles.brandName}>
-            <span>Piotr Świstowski</span>
-            <span className={styles.colorMode}>
-              <DarkModeButton />
-            </span>
-          </div>
-          <div className={styles.darkmodeBtn}></div>
-
-          <a href='#' className={styles.toggleBtn} onClick={() => toggleMenu()}>
-            <span className={styles.bar}></span>
-            <span className={styles.bar}></span>
-            <span className={styles.bar}></span>
-          </a>
-
-          <div className={styles.links} required={show}>
-            <ul onClick={() => closeMenu()}>
-              <li>
-                <Link href='/'> Home</Link>
-              </li>
-              <li>
-                <Link href='/posts'> Posts</Link>
-              </li>
-
-              <li>
-                <Link href='/contact'> Contact</Link>
-              </li>
-              {!session && (
-                <>
-                  <li>
-                    <Link href='/auth/signin'> login</Link>
-                  </li>
-                  <li>
-                    <Link href='/register'> register</Link>
-                  </li>
-                </>
-              )}
-
-              {session && (
-                <li>
-                  <Link href='/user'> user</Link>
-                </li>
-              )}
-              {session && session.user.role === "admin" && (
-                <li>
-                  <Link href='/admin'> admin</Link>
-                </li>
-              )}
-              {session && (
-                <li className={styles.logout} onClick={() => Logout()}>
-                  <Link href='#'>Logout</Link>
-                </li>
-              )}
-            </ul>
-          </div>
-        </nav>
-        <ToastContainer
-          position='top-center'
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme='dark'
-        />
-      </div>
-    </header>
+      </header>
+    </div>
   );
 };
 
