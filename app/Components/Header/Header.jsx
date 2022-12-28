@@ -28,13 +28,14 @@ const Header = ({ showModal }) => {
   const showContact = () => showModal("contact");
 
   if (show) {
-    window.addEventListener("click", (e) => {
-      const header = document.getElementById("headerContainer");
+    window &&
+      window.addEventListener("click", (e) => {
+        const header = document.getElementById("headerContainer");
 
-      if (e.target == header) {
-        setShow(false);
-      }
-    });
+        if (e.target == header) {
+          setShow(false);
+        }
+      });
   }
 
   return (

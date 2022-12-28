@@ -10,13 +10,16 @@ import Register from "./Components/Modals/Register/Register";
 export default function RootLayout({ children, ...props }) {
   const [showModal, setShowModal] = useState("");
 
-  window.onclick = function (event) {
-    const modal = document.getElementById("myModal");
+  if (typeof window !== "undefined") {
+    window.onclick = function (event) {
+      const modal = document.getElementById("myModal");
 
-    if (event.target == modal) {
-      setShowModal("");
-    }
-  };
+      if (event.target == modal) {
+        setShowModal("");
+      }
+    };
+  }
+
   return (
     <html lang='en'>
       <head />
