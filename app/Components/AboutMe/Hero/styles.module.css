@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10vh;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  height: 100vh;
+}
+.face {
+  position: relative;
+  top: -18.8vh;
+  border-radius: 999999px;
+  margin: 0 auto;
+  height: 40vh;
+  width: 40vh;
+  object-fit: cover;
+}
+.text {
+  position: relative;
+  top: -15vh;
+  font-size: 1.2rem;
+  z-index: 20;
+}
+.text h2 {
+  /* font-size: 1.2rem; */
+  text-transform: uppercase;
+  letter-spacing: 1.2rem;
+}
+
+.textHeader {
+  letter-spacing: 2rem;
+  font-size: 3rem;
+}
+
+.heroBtns {
+  padding-top: 10px;
+}
+
+.heroBtn {
+  position: relative;
+  cursor: pointer;
+  top: -15vh;
+  padding: 0 10px;
+  border: 1px solid black;
+  border-radius: 9999px;
+  color: grey;
+  background-color: #333;
+  margin: 0 10px;
+}
+.heroBtn:hover {
+  color: rgba(128, 128, 128, 0.4);
+  background-color: rgba(51, 51, 51, 0.4);
+  transform: scale(1.2);
+}

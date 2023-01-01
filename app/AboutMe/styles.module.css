@@ -1,0 +1,20 @@
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  scroll-snap-type: y mandatory;
+  overflow: scroll;
+  z-index: 0;
+}
+.snapCenter {
+  scroll-snap-align: center;
+}
+.snapStart {
+  scroll-snap-align: start;
+}
+
+.header {
+  z-index: 200;
+  /* cursor: pointer; */
+}

@@ -8,17 +8,17 @@
 }
 
 .main img {
+}
+.image {
   display: block;
   margin: auto;
   max-height: 70vh;
   width: auto;
   opacity: 0.8;
+}
+.image[required] {
   animation-name: moveInTop;
   animation-duration: 2s;
-}
-.image {
-  /* background-image: red.; */
-  /* clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); */
 }
 
 .logoBox {

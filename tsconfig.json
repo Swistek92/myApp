@@ -33,7 +33,7 @@
     "types.d.ts",
     ".next/types/**/*.ts",
     "app/Components/Header/Header.jsx",
-    "app/user/layout.jsx",
+    "app/User/layout.jsx",
     "app/Components/Buttons/DarkModeButton.jsx",
     "app/(admin1)/[[...index]]/head.tsx",
     "app/(admin1)/[[...index]]/loading.tsx",

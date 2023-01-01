@@ -13,7 +13,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { modalActions } from "../../store/modals-slice";
+import { modalActions } from "../../Store/modals-slice";
 
 const Header = ({ showModal }) => {
   const { data: session, status } = useSession();
@@ -55,10 +55,10 @@ const Header = ({ showModal }) => {
           </div>
 
           <nav className={styles.navbar}>
-            <button onClick={() => showLogin()}>SHOW MODAL</button>
+            {/* <button onClick={() => showLogin()}>SHOW MODAL</button> */}
 
             <div className={styles.brandName}>
-              <span>Piotr Świstowski</span>
+              <span>Swistoklik.pl</span>
               <span className={styles.colorMode}>
                 <DarkModeButton />
               </span>
@@ -81,39 +81,42 @@ const Header = ({ showModal }) => {
                   <Link href='/'> Home</Link>
                 </li>
                 <li>
-                  <Link href='/posts'> Posts</Link>
+                  <Link href='/Posts'> Posts</Link>
                 </li>
                 <li>
                   <Link href='/Tours'> tours</Link>
                 </li>
+                <li>
+                  <Link href='/AboutMe'> AboutMe</Link>
+                </li>
 
                 <li>
-                  <Link href='/contact'> Contact</Link>
+                  <Link href='/Contact'> Contact</Link>
                 </li>
                 {!session && (
                   <>
                     <li>
-                      <Link href='/auth/signin'> login</Link>
+                      <Link href='/Auth/signin'> login</Link>
                     </li>
                     <li>
-                      <Link href='/register'> register</Link>
+                      <Link href='/Register'> register</Link>
                     </li>
                   </>
                 )}
 
                 {session && (
                   <li>
-                    <Link href='/user'> user</Link>
+                    <Link href='/User'> user</Link>
                   </li>
                 )}
                 {session && session.user.role === "admin" && (
                   <li>
-                    <Link href='/admin'> admin</Link>
+                    <Link href='/Admin'> admin</Link>
                   </li>
                 )}
                 {session && (
                   <li className={styles.logout} onClick={() => Logout()}>
-                    <Link href='#'>Logout</Link>
+                    <p>Logout</p>
                   </li>
                 )}
               </ul>

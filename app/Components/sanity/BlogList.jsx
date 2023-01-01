@@ -11,7 +11,7 @@ function BlogList({ posts }) {
         {posts.map((post) => (
           <ClientSideRoute
             key={post._id}
-            route={`/posts/posts/${post.slug.current}`}
+            route={`/Posts/posts/${post.slug.current}`}
           >
             <div key={post._id} className={styles.card}>
               <div>

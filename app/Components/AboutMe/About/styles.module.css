@@ -1,0 +1,15 @@
+.container {
+  height: 100vh;
+  padding: 10vh;
+  /* background-color: red */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .container {
+    flex-direction: row;
+  }
+}

@@ -2,8 +2,8 @@
 import { ReactQueryDevtools } from "react-query/devtools";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
-import { Provider } from "react-redux";
-import store from "../../store/index";
+// import { Provider } from "react-redux";
+// import store from "../../store/index";
 import {
   useQuery,
   useMutation,
@@ -14,18 +14,20 @@ import {
 
 const queryClient = new QueryClient();
 
+{
+  /* <Provider store={store}> */
+}
+// </Provider>
 const Wrappers = ({ children }) => {
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <SessionProvider>
-          <ThemeProvider enableSystem={true} defaultTheme='dark'>
-            {children}
-          </ThemeProvider>
-        </SessionProvider>
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-      </QueryClientProvider>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <SessionProvider>
+        <ThemeProvider enableSystem={true} defaultTheme='dark'>
+          {children}
+        </ThemeProvider>
+      </SessionProvider>
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+    </QueryClientProvider>
   );
 };
 
