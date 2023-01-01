@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  /* flex-direction: row;
+  text-align: center;
+  justify-content: center; */
+}
+
+.row1 {
+  /* flex: 2; */
+  min-width: 30vw;
+  border-right: 4px solid rgb(56, 54, 54);
+  height: 90vh;
+  overflow-y: auto;
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* padding-top: 5rem; */
+}
+.children {
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
