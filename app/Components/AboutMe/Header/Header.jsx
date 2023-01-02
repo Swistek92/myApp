@@ -19,12 +19,14 @@ const Header = () => {
             url='https://youtube.com/swistek00'
             fgColor='gray'
             bgColor='transparent'
+            target='_blank'
           />
           <SocialIcon
             className={styles.icon}
             fgColor='gray'
             bgColor='transparent'
             url='https://www.facebook.com/Swistekk'
+            target='_blank'
           />
         </motion.div>
 
@@ -39,6 +41,8 @@ const Header = () => {
             network='email'
             fgColor='gray'
             bgColor='transparent'
+            target='_blank'
+            style={{ zIndex: 9999999 }}
           />
           <p className={styles.touch}>contact</p>
         </motion.div>

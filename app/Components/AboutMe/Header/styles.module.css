@@ -5,7 +5,8 @@
   display: flex;
   justify-content: flex-end;
   text-align: center;
-  z-index: 999999999999;
+  /* z-index: 100000000; */
+  /* padding: 20px; */
   /* margin: 200px; */
 }
 .icons {
@@ -16,6 +17,7 @@
 
 .icon {
   cursor: pointer;
+  z-index: 1000;
 }
 
 .touch {

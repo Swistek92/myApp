@@ -13,6 +13,9 @@
 .snapStart {
   scroll-snap-align: start;
 }
+.snapEnd {
+  scroll-snap-align: end;
+}
 
 .header {
   z-index: 200;

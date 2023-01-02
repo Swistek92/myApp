@@ -2,6 +2,7 @@ import React from "react";
 import About from "../Components/AboutMe/About/About";
 import Header from "../Components/AboutMe/Header/Header";
 import Hero from "../Components/AboutMe/Hero/Hero";
+import Experience from "../Components/AboutMe/Experience/Experience";
 import styles from "./styles.module.css";
 const page = () => {
   return (
@@ -12,6 +13,9 @@ const page = () => {
       </section>
       <section id='about' className={styles.snapCenter}>
         <About />
+      </section>
+      <section id='experience' className={styles.snapEnd}>
+        <Experience />
       </section>
     </div>
   );

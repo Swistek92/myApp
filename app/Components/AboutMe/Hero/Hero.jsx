@@ -5,6 +5,7 @@ import React from "react";
 import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles/BackgroundCircles";
 import styles from "./styles.module.css";
+import { motion } from "framer-motion";
 const Hero = () => {
   const [text, count] = useTypewriter({
     words: ["Good morning,", "Dzien dobry,"],
@@ -14,11 +15,12 @@ const Hero = () => {
   return (
     <div className={styles.container}>
       <BackgroundCircles />
-      <Image
+      <motion.img
         src='https://res.cloudinary.com/dftyei6oe/image/upload/v1672527710/IMG_5986_j8zjzd.jpg'
-        width={500}
-        height={500}
         className={styles.face}
+        initial={{ rotate: 1200 }}
+        whileInView={{ rotate: 0 }}
+        transition={{ duration: 1 }}
         alt='asd'
       />
       <div className={styles.text}>
@@ -28,18 +30,18 @@ const Hero = () => {
         </h1>
       </div>
       <div className={styles.heroBtns}>
-        <Link href='#about' scroll>
+        <a href='#about' scroll={false}>
           <button className={styles.heroBtn}> About</button>
-        </Link>
-        <Link href='#experience'>
+        </a>
+        <a href='#experience'>
           <button className={styles.heroBtn}> Experience</button>
-        </Link>
-        <Link href='#skills'>
+        </a>
+        <a href='#skills'>
           <button className={styles.heroBtn}> Skills</button>
-        </Link>
-        <Link href='#projects'>
+        </a>
+        <a href='#projects'>
           <button className={styles.heroBtn}> Projects</button>
-        </Link>
+        </a>
       </div>
     </div>
   );
