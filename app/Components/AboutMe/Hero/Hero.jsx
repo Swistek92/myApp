@@ -30,16 +30,16 @@ const Hero = () => {
         </h1>
       </div>
       <div className={styles.heroBtns}>
-        <a href='#about' scroll={false}>
+        <a href='#about' scroll='true'>
           <button className={styles.heroBtn}> About</button>
         </a>
-        <a href='#experience'>
+        <a href='#experience' scroll='true'>
           <button className={styles.heroBtn}> Experience</button>
         </a>
-        <a href='#skills'>
+        <a href='#skills' scroll='true'>
           <button className={styles.heroBtn}> Skills</button>
         </a>
-        <a href='#projects'>
+        <a href='#projects' scroll='true'>
           <button className={styles.heroBtn}> Projects</button>
         </a>
       </div>
