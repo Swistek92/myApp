@@ -1,5 +1,6 @@
 .container {
   position: fixed;
+  /* position: relative; */
   width: 100vw;
   height: 100vh;
   color: white;
@@ -19,5 +20,6 @@
 
 .header {
   z-index: 200;
-  /* cursor: pointer; */
+  position: fixed;
+  cursor: pointer;
 }

@@ -4,7 +4,7 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import ClientSideRoute from "./ClientSideRoute";
 import styles from "./BlogList.module.css";
 function BlogList({ posts }) {
-  console.log(posts.length);
+  console.log(posts);
   return (
     <>
       <div className={styles.grid}>
@@ -19,38 +19,42 @@ function BlogList({ posts }) {
                   src={urlFor(post.mainImage).url()}
                   alt={post.author.name}
                   className={styles.image}
-                  // className='object-cover object-left lg:object-center rounded-md'
                   width={700}
                   height={700}
                 />
 
-                <div>
-                  <div className={styles.info}>
-                    <p className={styles.title}>Title: {post.title}</p>
-                    <p className={styles.created}>
-                      Created:
-                      {new Date(post._createdAt).toLocaleDateString("et-EE", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </p>
-                    <p className={styles.arrow}>
-                      <span>Read more</span>
-                      <ArrowUpRightIcon />
-                    </p>
+                <div className={styles.info}>
+                  <p className={styles.title}>{post.title}</p>
+                  <div className={styles.created}>
+                    Created:
+                    {new Date(post._createdAt).toLocaleDateString("et-EE", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </div>
-
-                  <div className='flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center'>
+                </div>
+                {post.categories.length > 0 && (
+                  <div className={styles.categories}>
+                    <span>categories:</span>
                     {post.categories.map((category) => (
-                      <div
-                        key={category._id}
-                        className='bg-[#202020] text-center text-white px-3 py-1 rounded-full text-sm font-medium'
-                      >
-                        <p>{category.title}</p>
+                      <div key={category._id}>
+                        <p>* {category.title}</p>
                       </div>
                     ))}
                   </div>
+                )}
+                <div className={styles.author}>
+                  <div>
+                    <p>Author: {post.author.name}</p>
+                  </div>
+                  <Image
+                    src={urlFor(post.author.image).url()}
+                    alt={post.author.name}
+                    className={styles.authorImg}
+                    width={100}
+                    height={100}
+                  />
                 </div>
               </div>
             </div>

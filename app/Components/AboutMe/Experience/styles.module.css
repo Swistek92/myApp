@@ -1,58 +1,36 @@
 .container {
   height: 100vh;
-  position: relative;
-  top: 10vh;
-  padding-top: 2vh;
-
   display: flex;
-  /* flex-direction: column; */
+  position: relative;
+  overflow: hidden;
+  flex-direction: row;
+  text-align: center;
+  top: 3.5rem;
+  align-items: center;
+
+  justify-content: center;
+  /* background-color: rgb(22, 180, 228); */
+}
+
+.header {
+  position: absolute;
+  top: 6rem;
+  text-transform: uppercase;
+  color: rgb(144, 133, 133);
+  font-size: 2rem;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-.header {
-  position: absolute;
-  top: 10vh;
-  /* width: 100px; */
-  /* height: 100px; */
-}
-.img {
-  position: absolute;
-  left: 0;
-  right: 0;
-  border-radius: 999999px;
-  margin: 0 auto;
-  /* height: 40vh; */
-  /* width: 40vh; */
-  width: 40vh;
-  height: 40vh;
-  /* margin-top: 10vh; */
-  object-fit: cover;
-  animation: donnoSpin 0.5s infinite linear;
+.cards {
+  width: 100%;
+  display: flex;
+  margin: 0 20px;
+  overflow-x: scroll;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
 }
 
-@keyframes donnoSpin {
-  0% {
-    transform: rotate(-20deg);
-  }
-
-  20% {
-    transform: rotate(0);
-  }
-
-  40% {
-    transform: rotate(20deg);
-  }
-
-  60% {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(-20deg);
-  }
-}
-@media (min-width: 900px) and (max-height: 800px) {
-  .container {
-    top: 10vh;
-  }
+.snapCenter {
+  scroll-snap-align: center;
 }

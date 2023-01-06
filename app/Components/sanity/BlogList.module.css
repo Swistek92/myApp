@@ -2,14 +2,16 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 20px;
-  align-items: center;
+  /* align-items: center; */
   padding: 20px;
   /* margin: 10px; */
+  position: relative;
 }
 
 .card {
+  display: flex;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
   padding: 2rem;
@@ -23,30 +25,51 @@
 
 .info {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  /* align-items: center; */
 }
 .title {
-  display: flex;
-  text-align: center;
-  justify-content: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  color: rgb(125, 120, 120);
+}
+.created {
+  font-size: 1.3rem;
+  color: rgb(78, 76, 76);
 }
 
-.arrow {
+.categories {
+  border-top: 1px solid black;
+  color: rgb(176, 167, 167);
+  letter-spacing: 0.4rem;
+  padding: 5px;
+}
+.author {
+  border-top: 1px solid black;
+  padding: 5px;
   display: flex;
-  justify-content: space-between;
-  max-height: 20vh;
-  text-align: center;
   justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.authorImg {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 9999999px;
 }
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
+  .info {
+    display: block;
+  }
   .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
   .grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
