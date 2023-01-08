@@ -1,5 +1,5 @@
-const databaseUrl = process.env.DATABASE;
 import mongoose from "mongoose";
+const databaseUrl = process.env.DATABASE;
 
 const connectDB = async () => {
   try {

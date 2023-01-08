@@ -121,6 +121,7 @@
 
 .composition {
   position: relative;
+  margin-bottom: 300px;
 }
 
 .image {
@@ -153,6 +154,12 @@
 .image3 {
   left: 80px;
   top: 200px;
+}
+
+@media (min-width: 1000px) {
+  .composition {
+    margin: 0;
+  }
 }
 
 @media only screen and (max-width: 1000px) {

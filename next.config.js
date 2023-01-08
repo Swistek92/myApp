@@ -12,6 +12,7 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "cdn.sanity.io",
       "res.cloudinary.com",
+      "images.ctfassets.net",
     ],
 
     dangerouslyAllowSVG: true,
