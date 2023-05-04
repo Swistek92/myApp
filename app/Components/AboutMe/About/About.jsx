@@ -36,7 +36,7 @@ const About = () => {
           transition={{ duration: 1.5 }}
           className={styles.text}
         >
-          software && electricity
+          electricity
         </motion.h1>
         <motion.p
           initial={{ x: -200, opacity: 0, scale: 0.5 }}
@@ -44,7 +44,28 @@ const About = () => {
           transition={{ duration: 1.5 }}
           className={styles.text}
         >
-          200 OK
+          Technic Electric, enthusiast of technology, couples years expirments
+          on diffrent roles on coal power station and out of it, self
+          constructor e-bike, connection cables, fixing bugs, developing
+          systems, fully permission person in electricity
+        </motion.p>
+        <motion.h1
+          initial={{ x: 200, opacity: 0, scale: 0.5 }}
+          whileInView={{ x: 0, opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className={styles.text}
+        >
+          software
+        </motion.h1>
+        <motion.p
+          initial={{ x: -200, opacity: 0, scale: 0.5 }}
+          whileInView={{ x: 0, opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className={styles.text}
+        >
+          In Software developing im selftouch programmer, and student of Merito
+          University on computer sience topic. I know javascript & typescript
+          and couples frameworks, clean code principles and testing techniques.
         </motion.p>
       </div>
     </div>
