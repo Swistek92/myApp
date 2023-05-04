@@ -16,8 +16,8 @@ export default function Page() {
       <div className={styles.container}>
         <Header innerRef={ref1} myElementIsVisible={element1} />
         <Main innerRef={ref2} myElementIsVisible={element2} />
-        <Header innerRef={ref3} myElementIsVisible={element3} />
-        <Main innerRef={ref4} myElementIsVisible={element4} />
+        {/* <Header innerRef={ref3} myElementIsVisible={element3} /> */}
+        {/* <Main innerRef={ref4} myElementIsVisible={element4} /> */}
       </div>
     </>
   );

@@ -29,7 +29,6 @@
 
 .logo {
   font-size: 5rem;
-  /* height: 150px; */
   animation: appLogoSpin 2s infinite linear;
 }
 
@@ -48,21 +47,21 @@
 .headingName {
   display: flex;
   text-align: center;
-  font-size: 50px;
+  font-size: 20px;
   display: block;
   font-weight: 400;
-  letter-spacing: 30px;
+  letter-spacing: 10px;
   animation-name: moveInLeft;
-  animation-duration: 4s;
+  animation-duration: 2s;
 }
 
 .headingSub {
   display: flex;
   text-align: center;
-  font-size: 20px;
+  font-size: 10px;
   display: block;
-  font-weight: 200;
-  letter-spacing: 15px;
+  font-weight: 800;
+  letter-spacing: 5px;
   animation-name: moveInRight;
   animation-duration: 4s;
 }

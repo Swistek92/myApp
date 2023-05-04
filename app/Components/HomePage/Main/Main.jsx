@@ -7,24 +7,18 @@ import Link from "next/link";
 const Main = () => {
   return (
     <main className={styles.main}>
-      <h2 className={styles.heading}> Lorem ipsum Lorem, ipsum.dolor sit </h2>
+      <h2 className={styles.heading}> Photography enthusiast </h2>
       <div className={styles.flexboxConteriner}>
         <div className={`${styles.row} ${styles.row1}`}>
-          <h3 className={styles.headingTertiary}>
-            Lorem ipsum dolor sit amet.
-          </h3>
-          <p className={styles.paragrpah}>
-            asdasdasdlorem10sad Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Dolores, tempora?
-          </p>
-          <h3 className={styles.headingTertiary}> Lorem, ipsum dolor.</h3>
-          <p className={styles.paragrpah}>
-            asdasdasdlorem10sad Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Dolores, tempora?
-          </p>
+          <h3 className={styles.headingTertiary}>kind of Photography</h3>
+          <p className={styles.paragrpah}>nature wildlife animals photos </p>
+          <p className={styles.paragrpah}>landscape photography</p>
+          <p className={styles.paragrpah}>portrait photography</p>
+          <p className={styles.paragrpah}>portrait photography</p>
+          <p className={styles.paragrpah}>product photography</p>
 
-          <Link href='#' className={`${styles.btn} ${styles.btnWhite}`}>
-            Discover Tours →
+          <Link href='/Contact' className={`${styles.btn} ${styles.btnWhite}`}>
+            contact Me →
           </Link>
         </div>
 

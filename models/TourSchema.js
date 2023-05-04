@@ -33,7 +33,7 @@ const tourSchema = new Schema(
       default: 4.5,
       min: [1, "rating must be hinger or equal 1"],
       max: [5, "rating must be lower or equal 5"],
-      set: (val) => Math.round(val * 10) / 10,
+      // set: (val) => Math.round(val * 10) / 10,
     },
     ratingQuantity: {
       type: Number,
@@ -65,10 +65,10 @@ const tourSchema = new Schema(
       default: Date.now(),
     },
     startDates: [Date],
-    // secretTour: {
-    //   type: Boolean,
-    //   default: false,
-    // },
+    secretTour: {
+      type: Boolean,
+      default: false,
+    },
     // startLocation: {
     //   //geoJSON
     //   type: {
@@ -120,6 +120,15 @@ tourSchema.pre("save", function (next) {
 
 // tourSchema.post("save", function (doc, next) {
 //   console.log(doc);
+//   next();
+// });
+
+tourSchema.pre(/^find/, function (next) {
+  this.find({ secretTour: { $ne: true } });
+});
+
+// tourSchema.post(/^find/, function (doc, next) {
+//   this.start = Date.now();
 //   next();
 // });
 
