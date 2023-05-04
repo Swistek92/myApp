@@ -3,6 +3,7 @@ import React from "react";
 import { SocialIcon } from "react-social-icons";
 import styles from "./styles.module.css";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -28,6 +29,13 @@ const Header = () => {
             url='https://www.facebook.com/Swistekk'
             target='_blank'
           />
+          <SocialIcon
+            className={styles.icon}
+            fgColor='gray'
+            bgColor='transparent'
+            url='https://www.instagram.com/swistoklik_/'
+            target='_blank'
+          />
         </motion.div>
 
         <motion.div
@@ -44,7 +52,7 @@ const Header = () => {
             target='_blank'
             style={{ zIndex: 9999999 }}
           />
-          <p className={styles.touch}>contact</p>
+          <Link href='/Contact'> Contact</Link>
         </motion.div>
       </div>
     </div>

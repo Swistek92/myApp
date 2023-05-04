@@ -65,6 +65,17 @@
   animation-name: moveInRight;
   animation-duration: 4s;
 }
+.headingSub2 {
+  display: flex;
+  text-align: center;
+  font-size: 10px;
+  display: block;
+  color: #a68d8d;
+  font-weight: 600;
+  letter-spacing: 5px;
+  animation-name: moveInRight;
+  animation-duration: 4s;
+}
 
 .btn:link,
 .btn:visited {

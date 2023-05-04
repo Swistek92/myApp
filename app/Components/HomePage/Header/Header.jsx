@@ -22,6 +22,9 @@ const Header = ({ innerRef, myElementIsVisible }) => {
         <div className={styles.textBox}>
           <h1 className={styles.heading}>
             <span className={styles.headingName}>Full stack developer</span>
+            <span className={styles.headingSub2}>
+              Aplication && website && photography
+            </span>
             <span className={styles.headingSub}>Piotr Świstowski</span>
           </h1>
 

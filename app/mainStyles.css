@@ -16,6 +16,11 @@ a {
   text-decoration: inherit; /* no underline */
   cursor: inherit;
 }
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 body {
   font-family: "Lato", sans-serif;
@@ -37,4 +42,21 @@ html {
 [data-theme="light"] body {
   background-color: #fff;
   color: #000;
+}
+
+.responsive-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 60px;
+  overflow: hidden;
+}
+
+.responsive-video iframe,
+.responsive-video object,
+.responsive-video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

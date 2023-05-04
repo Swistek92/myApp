@@ -80,12 +80,12 @@ const Header = ({ showModal }) => {
                 <li>
                   <Link href='/'> Home</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href='/Posts'> Posts</Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link href='/Tours'> tours</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href='/AboutMe'> AboutMe</Link>
                 </li>

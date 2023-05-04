@@ -2,7 +2,7 @@
 import Header from "./Components/HomePage/Header/Header";
 import Main from "./Components/HomePage/Main/Main";
 import styles from "./page.module.css";
-
+import Spa from "./Components/HomePage/SPA/Spa";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 export default function Page() {
@@ -15,7 +15,10 @@ export default function Page() {
     <>
       <div className={styles.container}>
         <Header innerRef={ref1} myElementIsVisible={element1} />
+        <Spa />
+
         <Main innerRef={ref2} myElementIsVisible={element2} />
+
         {/* <Header innerRef={ref3} myElementIsVisible={element3} /> */}
         {/* <Main innerRef={ref4} myElementIsVisible={element4} /> */}
       </div>
