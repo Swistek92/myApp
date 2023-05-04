@@ -8,6 +8,7 @@ const About = () => {
     <div>
       <div className={styles.container}>
         <h3 className={styles.aboutHeader}> ABOUT ME </h3>
+
         <div className={styles.imgs}>
           <motion.img
             src='https://res.cloudinary.com/dftyei6oe/image/upload/v1660897748/natours/ilnfox5yc0jfnayxl8pw.png'
@@ -67,6 +68,9 @@ const About = () => {
           University on computer sience topic. I know javascript & typescript
           and couples frameworks, clean code principles and testing techniques.
         </motion.p>
+        <a href='#hero' scroll='false'>
+          <button className={styles.heroBtn}>top</button>
+        </a>
       </div>
     </div>
   );

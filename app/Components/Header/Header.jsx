@@ -59,9 +59,9 @@ const Header = ({ showModal }) => {
 
             <div className={styles.brandName}>
               <span>Swistoklik.pl</span>
-              <span className={styles.colorMode}>
+              {/* <span className={styles.colorMode}>
                 <DarkModeButton />
-              </span>
+              </span> */}
             </div>
             <div className={styles.darkmodeBtn}></div>
 
