@@ -7,32 +7,45 @@ const About = () => {
   return (
     <div>
       <div className={styles.container}>
-        <h3 className={styles.aboutHeader}> ABOUT </h3>
-        <motion.img
-          src='https://res.cloudinary.com/dftyei6oe/image/upload/v1672615934/IMG_6319_ybkxdy.jpg'
-          width={800}
-          height={800}
-          alt='laala'
-          initial={{ x: -200, opacity: 0, scale: 0.5 }}
-          whileInView={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className={styles.img}
-        />
+        <h3 className={styles.aboutHeader}> ABOUT ME </h3>
+        <div className={styles.imgs}>
+          <motion.img
+            src='https://res.cloudinary.com/dftyei6oe/image/upload/v1660897748/natours/ilnfox5yc0jfnayxl8pw.png'
+            width={300}
+            height={300}
+            alt='laala'
+            initial={{ x: -200, opacity: 0, scale: 0.5 }}
+            whileInView={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className={styles.img}
+          />
+          <motion.img
+            src='https://res.cloudinary.com/dftyei6oe/image/upload/v1683225708/electricity.0_rumzld.webp'
+            width={300}
+            height={300}
+            alt='laala'
+            initial={{ x: 200, opacity: 0, scale: 0.5 }}
+            whileInView={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className={styles.img}
+          />
+        </div>
         <motion.h1
           initial={{ x: 200, opacity: 0, scale: 0.5 }}
           whileInView={{ x: 0, opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
           className={styles.text}
         >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit
-          enim nesciunt iste placeat animi est dolorem ipsum doloribus soluta,
-          praesentium tempora a dignissimos consequuntur minus nostrum? Mollitia
-          non obcaecati voluptatem debitis quia nam. Doloremque nam facilis, ea,
-          reiciendis, minus libero veniam sint assumenda vero nobis similique ut
-          officiis excepturi voluptatibus quaerat eveniet qui optio pariatur
-          voluptate expedita natus cupiditate dolorem totam perspiciatis.
-          Veritatis dolor, atque doloremque ab facilis consequatur quod minima
+          software && electricity
         </motion.h1>
+        <motion.p
+          initial={{ x: -200, opacity: 0, scale: 0.5 }}
+          whileInView={{ x: 0, opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className={styles.text}
+        >
+          200 OK
+        </motion.p>
       </div>
     </div>
   );

@@ -107,7 +107,7 @@ const Register = () => {
         />
         <Button type='submit'>Submit</Button>{" "}
         <div className={styles.link}>
-          <Link href={"/login"}>do you like login? </Link>
+          <Link href={"/Auth/signin"}>do you like login? </Link>
         </div>
       </form>
     </div>

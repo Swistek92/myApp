@@ -143,7 +143,10 @@
 }
 @media only screen and (max-width: 1000px) {
   .row1 {
-    margin-top: 50px;
+    /* margin-top: 0px -2px; */
+    /* margin: auto; */
+    margin-top: 80px;
+    margin-left: 80px;
   }
   .composition {
     position: relative;

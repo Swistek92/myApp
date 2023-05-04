@@ -109,7 +109,7 @@ const Login = () => {
           </Button>
         </div>
         <div className={styles.link}>
-          <Link href={"/register"}>Do you like register ? </Link>
+          <Link href={"/Register"}>Do you like register ? </Link>
         </div>
       </form>
     </div>

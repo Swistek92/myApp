@@ -80,7 +80,7 @@ const LoginForm = () => {
         />
         <Button type='submit'>Submit</Button>
       </form>
-      <div>
+      {/* <div>
         <Button
           onClick={() =>
             signIn("facebook", {
@@ -93,8 +93,8 @@ const LoginForm = () => {
             <AiFillFacebook />
           </h1>
           Sign in with facebook{" "}
-        </Button>
-      </div>{" "}
+        </Button> */}
+      {/* </div>{" "} */}
       <div>
         <Button
           onClick={() =>
@@ -110,7 +110,7 @@ const LoginForm = () => {
         </Button>
       </div>
       <div className={styles.link}>
-        <Link href={"/register"}>Do you like register ? </Link>
+        <Link href={"/Register"}>Do you like register ? </Link>
       </div>
     </div>
   );

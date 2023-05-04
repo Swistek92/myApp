@@ -14,10 +14,12 @@ const page = () => {
         <section id='hero' className={styles.snapStart}>
           <Hero />
         </section>
+        <section id='about' className={styles.snapEnd}>
+          <About />
+        </section>
       </div>
     </div>
   );
 };
 
 export default page;
-

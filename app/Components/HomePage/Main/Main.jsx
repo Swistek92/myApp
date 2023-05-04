@@ -8,7 +8,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Pagination } from "swiper";
-import CarouselCube from "../../Carousel/Carusel";
 import Carousel from "../../Carousel/Carusel";
 const Main = () => {
   return (
@@ -16,11 +15,11 @@ const Main = () => {
       <h2 className={styles.heading}> Photography enthusiast </h2>
       <div className={styles.flexboxConteriner}>
         <div className={`${styles.row} `}>
-          <h3 className={styles.headingTertiary}>kind of Photography</h3>
           <p className={styles.paragrpah}>nature wildlife animals photos </p>
           <p className={styles.paragrpah}>landscape photography</p>
           <p className={styles.paragrpah}>portrait photography</p>
           <p className={styles.paragrpah}>product photography</p>
+          <p className={styles.paragrpah}> reportage</p>
 
           <Link href='/Contact' className={`${styles.btn} ${styles.btnWhite}`}>
             contact Me →
