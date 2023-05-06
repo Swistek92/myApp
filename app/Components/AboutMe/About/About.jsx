@@ -18,7 +18,7 @@ const About = () => {
             initial={{ x: -200, opacity: 0, scale: 0.5 }}
             whileInView={{ x: 0, opacity: 1, scale: 1 }}
             transition={{ duration: 1.5 }}
-            className={styles.img}
+            className={`${styles.img} ${styles.img1}`}
           />
           <motion.img
             src='https://res.cloudinary.com/dftyei6oe/image/upload/v1683225708/electricity.0_rumzld.webp'
@@ -28,48 +28,53 @@ const About = () => {
             initial={{ x: 200, opacity: 0, scale: 0.5 }}
             whileInView={{ x: 0, opacity: 1, scale: 1 }}
             transition={{ duration: 1.5 }}
-            className={styles.img}
+            className={`${styles.img} ${styles.img2}`}
           />
         </div>
-        <motion.h1
-          initial={{ x: 200, opacity: 0, scale: 0.5 }}
-          whileInView={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className={styles.text}
-        >
-          electricity
-        </motion.h1>
-        <motion.p
-          initial={{ x: -200, opacity: 0, scale: 0.5 }}
-          whileInView={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className={styles.text}
-        >
-          Technic Electric, enthusiast of technology, couples years expirments
-          on diffrent roles on coal power station and out of it, self
-          constructor e-bike, connection cables, fixing bugs, developing
-          systems, fully permission person in electricity
-        </motion.p>
-        <motion.h1
-          initial={{ x: 200, opacity: 0, scale: 0.5 }}
-          whileInView={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className={styles.text}
-        >
-          software
-        </motion.h1>
-        <motion.p
-          initial={{ x: -200, opacity: 0, scale: 0.5 }}
-          whileInView={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className={styles.text}
-        >
-          In Software developing im selftouch programmer, and student of Merito
-          University on computer sience topic. I know javascript & typescript
-          and couples frameworks, clean code principles and testing techniques.
-        </motion.p>
+        <div className={styles.content}>
+          <motion.h1
+            initial={{ x: 200, opacity: 0, scale: 0.5 }}
+            whileInView={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className={styles.text}
+          >
+            electricity
+          </motion.h1>
+          <motion.p
+            initial={{ x: -200, opacity: 0, scale: 0.5 }}
+            whileInView={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className={styles.text}
+          >
+            Technic Electric, enthusiast of technology, couples years expirments
+            on diffrent roles on coal power station and out of it, self
+            constructor e-bike, connection cables, fixing bugs, developing
+            systems, fully permission person in electricity
+          </motion.p>
+        </div>
+        <div className={styles.content}>
+          <motion.h1
+            initial={{ x: 200, opacity: 0, scale: 0.5 }}
+            whileInView={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className={styles.text}
+          >
+            software
+          </motion.h1>
+          <motion.p
+            initial={{ x: -200, opacity: 0, scale: 0.5 }}
+            whileInView={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className={styles.text}
+          >
+            In Software developing im selftouch programmer, and student of
+            Merito University on computer sience topic. I know javascript &
+            typescript and couples frameworks, clean code principles and testing
+            techniques.
+          </motion.p>
+        </div>
         <a href='#hero' scroll='false'>
-          <button className={styles.heroBtn}>top</button>
+          <button className={styles.heroBtn}> Go top!</button>
         </a>
       </div>
     </div>
