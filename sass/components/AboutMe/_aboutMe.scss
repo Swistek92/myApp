@@ -1,0 +1,24 @@
+.ContactMe {
+  color: gray;
+  animation: weight 1s ease forwards infinite alternate;
+  text-decoration: none;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.ContactMe:hover {
+  // transform: scale(1.4);
+  background-color: rgb(55, 51, 51);
+  color: gray;
+}
+
+.icon {
+  padding: 5px;
+  border-radius: 10px;
+  animation: scale 1.5s ease forwards infinite alternate !important;
+}
+
+.icon:hover {
+  background-color: rgb(55, 51, 51);
+}

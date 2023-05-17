@@ -1,0 +1,17 @@
+.card {
+  // margin: 10px !important;
+  background-color: $grey;
+  color: $dirtyWhite;
+  max-width: 350px;
+}
+
+.card:hover {
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.629) !important;
+  // border: 10px solid red;
+}
+
+@media only screen and (min-width: 500px) {
+.card{
+  max-width: 450px;
+}
+}

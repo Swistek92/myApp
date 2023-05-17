@@ -3,6 +3,10 @@
   flex-direction: column;
   max-width: 80vw;
 }
+.disabled {
+  background-color: green;
+}
+
 .form input {
   width: 50vw;
 }

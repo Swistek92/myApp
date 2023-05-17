@@ -1,0 +1,43 @@
+.brandName {
+  animation: rainbow 1s ease forwards infinite alternate;
+  text-decoration: none;
+  border: none;
+}
+.navbar-brand {
+  border: none;
+  text-decoration: none;
+}
+
+.offcanvas {
+  background-color: $grey;
+}
+
+.offcanvas {
+  background-color: $grey;
+}
+
+.nav-link:hover {
+  color: $dirtyWhite;
+}
+
+.dropdown:hover {
+  color: $dirtyWhite;
+}
+
+.offcanvas input {
+  background-color: $lightGrey;
+  border: 2px solid $dirtyWhite;
+}
+
+.offcanvas input:focus {
+  background-color: $dirtyWhite;
+  border: none;
+}
+
+.dropdown-menu {
+  background-color: $lightGrey;
+}
+
+.dropdown-item:hover {
+  background-color: $dirtyWhite;
+}

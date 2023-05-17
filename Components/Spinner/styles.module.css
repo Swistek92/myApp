@@ -1,0 +1,21 @@
+.AppLogo {
+  max-width: 80vw;
+  height: auto;
+  pointer-events: none;
+  position: absolute;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .AppLogo {
+    animation: AppLogoSpin infinite 4s linear;
+  }
+}
+
+@keyframes AppLogoSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

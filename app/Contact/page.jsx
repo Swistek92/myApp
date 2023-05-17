@@ -1,62 +1,76 @@
 "use client";
 
 import { useFormik } from "formik";
-import contactValidationSchema from "../../utils/Validators/contactValidationSchema";
+import contactValidationSchema from "@/utils/validators/contactValidationSchema";
 import { useRouter } from "next/navigation";
-import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./styles.module.css";
-import React, { useEffect } from "react";
-import sendEmailMutation from "../../utils/Mutations/sendEmailMutation";
+import React from "react";
 import { useState } from "react";
 
-import Button from "../Components/Buttons/Button";
-import Input from "../Components/Input/Input";
-import Recaptcha from "../Components/ReCaptcha/v2/RecaptchaV2";
-import { successToast, infoToast, errorToast } from "../../utils/Toasts/Toast";
-import { useSession } from "next-auth/react";
+import Button from "./../../Components/Buttons/Button";
+import Input from "../../Components/Input/Input";
+import Recaptcha from "@/Components/ReCaptcha/v2/RecaptchaV2";
+import Spinner from "@/Components/Spinner/Spinner";
+import Success from "@/Components/Alerts/Success/Success";
 
 const ContactForm = () => {
-  const { data: session, status } = useSession();
   const router = useRouter();
   const [recaptchaError, setRecaptchaError] = useState("");
   const [token, setToken] = useState("");
-  const { mutate, isLoading, isError, isSuccess, error } = sendEmailMutation();
+  const [status, setStatus] = useState("");
+  const [isError, SetIsError] = useState(false);
   const { touched, errors, handleChange, values, handleSubmit } = useFormik({
     initialValues: {
-      email: session ? session.user.email : "",
-      name: session ? session.user.name : "",
+      email: "",
+      name: "",
       topic: "",
       content: "",
     },
     enableReinitialize: true,
     validationSchema: contactValidationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      console.log(values);
       if (!token) {
         setRecaptchaError("are you MR.R0B0T? ");
         return;
+      } else {
+        setRecaptchaError("");
       }
-      mutate({ ...values, token });
+      setStatus("loading");
+      SetIsError(false);
+      try {
+        const post = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...values, token }),
+        });
+        const res = await post.json();
+        console.log(res.success, res);
+        if (res.status === "success") {
+          setStatus("success");
+          setTimeout(() => {
+            router.push("/");
+          }, 10000);
+        } else {
+          SetIsError(true);
+          setStatus("");
+        }
+      } catch (error) {
+        setStatus("");
+      }
     },
   });
 
-  if (isLoading) {
-    infoToast("🦄 Wait Wait Wait sending...  ");
-  }
-
-  if (isSuccess) {
-    successToast("🦄 Done ! we send a email!");
-    setTimeout(() => {
-      router.push("/");
-    }, 1500);
-  }
-
-  if (isError) {
-    errorToast("smth went wrong");
-  }
-
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      {status === "loading" && <Spinner />}
+      {status === "success" && <Success />}
+      <form
+        className={`${styles.form} ${status === "success" && styles.disabled}`}
+        onSubmit={handleSubmit}
+      >
         <Input
           name='email'
           type='email'
@@ -64,6 +78,7 @@ const ContactForm = () => {
           value={values.email}
           touched={touched.email}
           error={errors.email}
+          disabled={status === "success"}
         />
         <Input
           name='name'
@@ -72,6 +87,7 @@ const ContactForm = () => {
           value={values.name}
           touched={touched.name}
           error={errors.name}
+          disabled={status === "success"}
         />
         <Input
           name='topic'
@@ -80,6 +96,7 @@ const ContactForm = () => {
           value={values.topic}
           touched={touched.topic}
           error={errors.topic}
+          disabled={status === "success"}
         />
 
         <Input
@@ -90,6 +107,7 @@ const ContactForm = () => {
           touched={touched.content}
           errr={errors.content}
           textarea={true}
+          disabled={status === "success"}
         />
         <Recaptcha
           setToken={setToken}

@@ -1,0 +1,61 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "./resets";
+@import "./variables";
+@import "./animation";
+@import "./components/Header/Header";
+@import "./components/Model/Model";
+@import "./components/Card/Card";
+@import "./components/AboutMe/aboutMe";
+@import "./grid";
+a {
+  text-decoration: none;
+}
+.agent {
+  height: 100vh;
+  width: 100vw;
+  background-color: inherit;
+  position: absolute;
+  top: 0;
+  z-index: -100;
+}
+
+body {
+  padding-top: 75px;
+  background-color: #505050;
+  transition: all 1s;
+}
+
+.next-link {
+  color: inherit;
+  border: inherit;
+  text-decoration: inherit;
+}
+.active {
+  font-weight: 800;
+  text-decoration: underline;
+  color: rgb(73, 62, 62);
+}
+
+.next-link:hover {
+  color: inherit;
+  font-weight: 800;
+}
+
+.logo {
+  position: fixed;
+  top: 5rem;
+  transform: scale(0.1);
+  z-index: 10;
+  display: block;
+  animation: appLogoSpin 2s infinite linear;
+  background-color: #50505044;
+  border-radius: 100px;
+  border: 2px dashed yellow;
+}
+.logo:hover {
+  animation: appLogoSpin 0.3s infinite linear;
+}
+@media only screen and (min-width: 500px) {
+  .logo {
+  }
+}
