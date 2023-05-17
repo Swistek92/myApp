@@ -2,3 +2,12 @@
   background-color: $lightGrey;
   color: $dirtyWhite;
 }
+
+@media screen and (orientation: landscape) {
+  .medelHeader {
+    display: none;
+  }
+  .model {
+    cursor: pointer;
+  }
+}

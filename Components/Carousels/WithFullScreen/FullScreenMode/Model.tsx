@@ -21,7 +21,7 @@ const FullScreenModel = ({ imgs, handleHide, show }: Props) => {
       fullscreen={true}
       onHide={() => handleHide()}
     >
-      <Modal.Header className='model' closeButton>
+      <Modal.Header className='model medelHeader' closeButton>
         <Modal.Title>Modal</Modal.Title>
       </Modal.Header>
       <Modal.Body className='model'>
@@ -29,6 +29,7 @@ const FullScreenModel = ({ imgs, handleHide, show }: Props) => {
           imgs={imgs}
           show={show}
           handleHide={handleHide}
+          hoverEvent={false}
         ></CarouselComponent>
       </Modal.Body>
     </Modal>

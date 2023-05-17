@@ -35,6 +35,7 @@ const Carousel = ({ imgs }: slideCollection) => {
         handleShow={handleShow}
         handleHide={handleHide}
         show={show}
+        hoverEvent={true}
       ></CarouselComponent>
       <FullScreenModel
         imgs={imgs}

@@ -10929,6 +10929,14 @@ textarea.form-control-lg {
   color: #b0aeae;
 }
 
+@media screen and (orientation: landscape) {
+  .medelHeader {
+    display: none;
+  }
+  .model {
+    cursor: pointer;
+  }
+}
 .card {
   background-color: #505050;
   color: #b0aeae;

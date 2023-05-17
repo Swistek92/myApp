@@ -23,9 +23,16 @@ interface Props {
   handleShow?: Function;
   handleHide?: Function;
   show: boolean;
+  hoverEvent?: boolean;
 }
 
-const CarouselComponent = ({ imgs, handleShow, handleHide, show }: Props) => {
+const CarouselComponent = ({
+  imgs,
+  handleShow,
+  handleHide,
+  show,
+  hoverEvent,
+}: Props) => {
   const handleVisibility = () => {
     if (!show && handleShow) {
       console.log("opening modal");
@@ -54,7 +61,12 @@ const CarouselComponent = ({ imgs, handleShow, handleHide, show }: Props) => {
       >
         {imgs.map((e: slide, i: number) => {
           return (
-            <SwiperSlide key={i} className={styles.swiperSlide}>
+            <SwiperSlide
+              key={i}
+              className={`${
+                hoverEvent ? styles.swiperSlideHover : styles.swiperSlide
+              }`}
+            >
               <img src={e.img} />
             </SwiperSlide>
           );
