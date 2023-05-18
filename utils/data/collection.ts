@@ -241,7 +241,7 @@ export const collections: cardsCollections = {
       ],
     },
     {
-      title: "mewy sniezki w szacie godowej",
+      title: "Mewa śmieszka w szacie godowej",
       imgs: [
         {
           img: "https://res.cloudinary.com/dftyei6oe/image/upload/v1684415742/mewa002/IMG_0153111_1_yhmz6n.jpg",
