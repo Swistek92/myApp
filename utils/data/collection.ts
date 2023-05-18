@@ -221,7 +221,7 @@ export const collections: cardsCollections = {
       ],
     },
     {
-      title: "mewa sniezka ",
+      title: "Mewa śmieszka ",
       imgs: [
         {
           img: "https://res.cloudinary.com/dftyei6oe/image/upload/v1684415606/mewa001/IMG_6769_i7eiem.jpg",
