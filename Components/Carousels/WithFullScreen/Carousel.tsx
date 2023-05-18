@@ -23,6 +23,10 @@ export interface slideCollection {
   imgs: slide[];
 }
 
+export interface cardsCollections {
+  cards: slideCollection[];
+}
+
 const Carousel = ({ imgs }: slideCollection) => {
   const [show, setShow] = useState(false);
 
