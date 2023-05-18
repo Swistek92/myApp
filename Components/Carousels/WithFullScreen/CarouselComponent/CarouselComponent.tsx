@@ -11,7 +11,7 @@ import styles from "./styles.module.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-
+import Image from "next/image";
 type slide = {
   img: string;
   title?: string;
@@ -67,7 +67,7 @@ const CarouselComponent = ({
                 hoverEvent ? styles.swiperSlideHover : styles.swiperSlide
               }`}
             >
-              <img src={e.img} />
+              <Image alt='img' src={e.img} width={2000} height={2000} />
             </SwiperSlide>
           );
         })}
