@@ -13,7 +13,12 @@ export default function Home() {
   return (
     <div className='grid'>
       {collections.cards.map((e: slideCollection, i) => (
-        <CardComponent key={i} title='wellcome' text='asd' imgs={e.imgs} />
+        <CardComponent
+          key={i}
+          title={e.title ? e.title : "title"}
+          describe={e.describe && e.describe}
+          imgs={e.imgs}
+        />
       ))}
     </div>
   );

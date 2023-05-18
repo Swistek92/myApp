@@ -20,7 +20,9 @@ export type slide = {
 };
 
 export interface slideCollection {
+  title?: string;
   imgs: slide[];
+  describe?: string;
 }
 
 export interface cardsCollections {
