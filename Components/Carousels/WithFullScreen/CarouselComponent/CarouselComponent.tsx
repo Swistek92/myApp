@@ -67,7 +67,13 @@ const CarouselComponent = ({
                 hoverEvent ? styles.swiperSlideHover : styles.swiperSlide
               }`}
             >
-              <Image alt='img' src={e.img} width={2000} height={2000} />
+              <Image
+                alt='img'
+                src={e.img}
+                width={1000}
+                height={1000}
+                sizes='100vw'
+              />
             </SwiperSlide>
           );
         })}

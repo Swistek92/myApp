@@ -55,7 +55,37 @@ body {
 .logo:hover {
   animation: appLogoSpin 0.3s infinite linear;
 }
-@media only screen and (min-width: 500px) {
+
+.main {
+  position: relative;
+}
+
+.responsiveImg {
+  width: 100vw;
+  height: auto;
+  // position: relative;
+}
+
+.heading {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
   .logo {
+  }
+  .heading {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .logo {
+  }
+  .heading {
+    font-size: 2rem;
   }
 }

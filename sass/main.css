@@ -11041,4 +11041,33 @@ body {
 
 .logo:hover {
   animation: appLogoSpin 0.3s infinite linear;
+}
+
+.main {
+  position: relative;
+}
+
+.responsiveImg {
+  width: 100vw;
+  height: auto;
+}
+
+.heading {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .heading {
+    font-size: 2rem;
+  }
 }/*# sourceMappingURL=main.css.map */

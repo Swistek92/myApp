@@ -16,6 +16,7 @@ const Header = () => {
   const isHome = pathname && pathname.endsWith("/");
   const isAboutMe = pathname && pathname.endsWith("AboutMe");
   const isContact = pathname && pathname.endsWith("Contact");
+  const isGarllery = pathname && pathname.endsWith("Gallery");
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
   const toggleMenu = () => setMenuOpen((state) => !state);
@@ -42,7 +43,7 @@ const Header = () => {
             aria-labelledby={`offcanvasNavbarLabel-expand-`}
             placement='end'
             show={menuOpen}
-            onClick={() => toggleMenu()}
+            onClick={() => closeMenu()}
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-`}>
@@ -54,6 +55,14 @@ const Header = () => {
                 <Nav.Link as='span'>
                   <Link className={`next-link ${isHome && "active"}`} href='/'>
                     Home
+                  </Link>
+                </Nav.Link>
+                <Nav.Link as='span'>
+                  <Link
+                    className={`next-link ${isGarllery && "active"}`}
+                    href='/Gallery'
+                  >
+                    Gallery
                   </Link>
                 </Nav.Link>
                 <Nav.Link as='span'>
