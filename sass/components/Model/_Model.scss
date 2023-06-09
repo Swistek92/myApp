@@ -1,6 +1,9 @@
 .model {
   background-color: $lightGrey;
-  color: $dirtyWhite;
+  // color: $dirtyWhite;
+}
+.modal-content {
+  background-color: transparent;
 }
 
 @media screen and (orientation: landscape) {

@@ -8,7 +8,12 @@ import styles from "./styles.module.css";
 import { motion } from "framer-motion";
 const Hero = () => {
   const [text, count] = useTypewriter({
-    words: ["Good morning,", "Dzien dobry,", ""],
+    words: [
+      "photography",
+      "website creator",
+      "software development",
+      "content creator",
+    ],
     loop: true,
     delaySpeed: 500,
   });
@@ -16,7 +21,7 @@ const Hero = () => {
     <div className={styles.container}>
       <BackgroundCircles />
       <motion.img
-        src='https://res.cloudinary.com/dftyei6oe/image/upload/v1672527710/IMG_5986_j8zjzd.jpg'
+        src='https://res.cloudinary.com/dftyei6oe/image/upload/v1686267935/352579223_1063919221658423_6563206581768475290_n_zasbed.jpg'
         className={styles.face}
         initial={{ rotate: 1200 }}
         whileInView={{ rotate: 0 }}
@@ -24,9 +29,9 @@ const Hero = () => {
         alt='asd'
       />
       <div className={styles.text}>
-        <h2>Engineering</h2>
+        <h2></h2>
         <h1 className={styles.textHeader}>
-          {text} <Cursor cursorColor='yellow' />
+          {text} <Cursor cursorColor='black' />
         </h1>
       </div>
       {/* <div className={styles.heroBtns}>

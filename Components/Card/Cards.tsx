@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Carousel, {
   slideCollection,
-} from "../Carousels/WithFullScreen/Carousel";
+} from "../Carousels/CarouselGalleryComponent/CarouselGallery";
 // import { imgs } from "@/app/page";
 
 interface props extends slideCollection {

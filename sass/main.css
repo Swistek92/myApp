@@ -10926,7 +10926,10 @@ textarea.form-control-lg {
 
 .model {
   background-color: rgba(139, 137, 137, 0.4784313725);
-  color: #b0aeae;
+}
+
+.modal-content {
+  background-color: transparent;
 }
 
 @media screen and (orientation: landscape) {
@@ -10980,7 +10983,7 @@ textarea.form-control-lg {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   justify-items: start;
-  margin: 10px;
+  margin: 50px;
   align-items: center;
 }
 
@@ -11050,15 +11053,6 @@ body {
 .responsiveImg {
   width: 100vw;
   height: auto;
-}
-
-.heading {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 2;
-  font-size: 1rem;
 }
 
 @media only screen and (min-width: 600px) {

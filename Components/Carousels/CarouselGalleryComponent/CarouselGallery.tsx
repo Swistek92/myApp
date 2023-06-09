@@ -12,8 +12,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import CarouselComponent from "./CarouselComponent/CarouselComponent";
-import FullScreenModel from "./FullScreenMode/Model";
-
+import FullScreenModel from "../../Modals/FullScreenModal/Model";
 export type slide = {
   img: string;
   title?: string;
@@ -29,7 +28,7 @@ export interface cardsCollections {
   cards: slideCollection[];
 }
 
-const Carousel = ({ imgs }: slideCollection) => {
+const CarouselGallery = ({ imgs }: slideCollection) => {
   const [show, setShow] = useState(false);
 
   const handleHide = () => setShow(false);
@@ -44,7 +43,7 @@ const Carousel = ({ imgs }: slideCollection) => {
         hoverEvent={true}
       ></CarouselComponent>
       <FullScreenModel
-        imgs={imgs}
+        img={imgs}
         show={show}
         handleHide={handleHide}
       ></FullScreenModel>
@@ -52,4 +51,4 @@ const Carousel = ({ imgs }: slideCollection) => {
   );
 };
 
-export default Carousel;
+export default CarouselGallery;

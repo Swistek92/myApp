@@ -1,0 +1,11 @@
+.modal {
+  width: 100vw;
+  background-color: transparent !important;
+  height: 100vh;
+}
+.img {
+  object-fit: contain;
+  max-width: 90vw;
+  margin: auto;
+  max-height: 90vh;
+}

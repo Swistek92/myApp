@@ -74,7 +74,7 @@ const ContactForm = () => {
         <Input
           name='email'
           type='email'
-          onChange={handleChange}
+          onChangeInput={handleChange}
           value={values.email}
           touched={touched.email}
           error={errors.email}
@@ -83,7 +83,7 @@ const ContactForm = () => {
         <Input
           name='name'
           type='text'
-          onChange={handleChange}
+          onChangeInput={handleChange}
           value={values.name}
           touched={touched.name}
           error={errors.name}
@@ -92,7 +92,7 @@ const ContactForm = () => {
         <Input
           name='topic'
           type='text'
-          onChange={handleChange}
+          onChangeInput={handleChange}
           value={values.topic}
           touched={touched.topic}
           error={errors.topic}
@@ -102,10 +102,10 @@ const ContactForm = () => {
         <Input
           name='content'
           type='text'
-          onChange={handleChange}
           value={values.content}
           touched={touched.content}
           errr={errors.content}
+          onChangeTextArea={handleChange}
           textarea={true}
           disabled={status === "success"}
         />

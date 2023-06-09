@@ -35,10 +35,8 @@ const CarouselComponent = ({
 }: Props) => {
   const handleVisibility = () => {
     if (!show && handleShow) {
-      console.log("opening modal");
       handleShow();
     } else if (show && handleHide) {
-      console.log("closiong modal");
       handleHide();
     }
   };
@@ -56,7 +54,7 @@ const CarouselComponent = ({
           clickable: true,
         }}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Navigation]}
         className={styles.swiper}
       >
         {imgs.map((e: slide, i: number) => {
@@ -67,13 +65,7 @@ const CarouselComponent = ({
                 hoverEvent ? styles.swiperSlideHover : styles.swiperSlide
               }`}
             >
-              <Image
-                alt='img'
-                src={e.img}
-                width={1000}
-                height={1000}
-                sizes='100vw'
-              />
+              <Image alt='img' src={e.img} width={1000} height={1000} />
             </SwiperSlide>
           );
         })}

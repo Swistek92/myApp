@@ -1,7 +1,7 @@
-import { cardsCollections } from "@/Components/Carousels/WithFullScreen/Carousel";
+import { cardsCollections } from "@/Components/Carousels/CarouselGalleryComponent/CarouselGallery";
 import { title } from "process";
 
-export const collections: cardsCollections = {
+export const GalleryCollection: cardsCollections = {
   cards: [
     // {
     //   imgs: [
