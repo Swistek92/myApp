@@ -10982,16 +10982,17 @@ textarea.form-control-lg {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  justify-items: start;
-  margin: 50px;
-  align-items: center;
+  grid-gap: 10px;
+  justify-items: center;
+  margin: auto 0;
 }
 
 @media only screen and (min-width: 500px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    justify-items: center;
+    justify-items: left;
     grid-gap: 10px;
+    margin: 50px;
   }
 }
 a {
@@ -11014,6 +11015,7 @@ body {
 }
 
 .mainContent {
+  padding: 0;
   margin-bottom: 30px;
 }
 

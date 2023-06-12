@@ -36,10 +36,7 @@ const FullScreenModal = ({ img, handleHide, show }: Props) => {
   }
   return (
     <Modal
-      cclassNames={{
-        overlay: "customOverlay",
-        modal: "customModal",
-      }}
+      className='model'
       show={show}
       fullscreen
       onClick={() => handleHide()}
