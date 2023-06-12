@@ -9,3 +9,12 @@
   margin-top: 30px;
   /* margin-left: 300px; */
 }
+.spa {
+  font-weight: 900;
+  cursor: pointer;
+}
+.link {
+  color: black;
+  font-weight: 900;
+  margin: 5px;
+}

@@ -1,6 +1,6 @@
 .modal {
   width: 100vw;
-  background-color: transparent !important;
+  /* background-color: red; */
   height: 100vh;
 }
 .img {

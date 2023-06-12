@@ -16,8 +16,8 @@
 
 .swiperSlide img {
   display: block;
-  width: auto;
-  min-width: 20vw;
+  height: auto;
+  min-width: 30vw;
   height: 30vh;
 
   object-fit: contain;

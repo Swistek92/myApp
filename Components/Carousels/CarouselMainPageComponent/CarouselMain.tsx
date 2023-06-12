@@ -47,11 +47,8 @@ const CarouselMain = () => {
             500: {
               slidesPerView: 2,
             },
-            800: {
+            1000: {
               slidesPerView: 3,
-            },
-            1500: {
-              slidesPerView: 4,
             },
           }}
         >

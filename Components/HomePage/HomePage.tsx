@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 
 import Accordion from "react-bootstrap/Accordion";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import Image from "next/image";
+import TextModal from "./spaModal/TextModal";
+import Link from "next/link";
 
 const HomePage = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div>
+      <TextModal show={showModal} handleHide={() => setShowModal(false)} />
       <div>
         <Container>
           <Row>
@@ -31,8 +35,11 @@ const HomePage = () => {
                 różnorodne zdjęcia, które opowiadają własne historie. Niech moje
                 obrazy poruszają Twoje emocje i otworzą Ci nowe perspektywy. Jak
                 również wyróbować projektu aplikacji webowej z wykorzystaniej
-                SPA (single page application), zwróć uwagę na to, że strona na
-                której jesteś nigdy się nie przeładuje.
+                <span className={styles.spa} onClick={() => setShowModal(true)}>
+                  SPA(single page application)
+                </span>
+                , zwróć uwagę na to, że strona na której jesteś nigdy się nie
+                przeładuje.
               </p>
               <p>
                 Jeśli jesteś zainteresowany współpracą, chętnie podejmę nowe
@@ -44,7 +51,18 @@ const HomePage = () => {
                 prace zainspirują Cię i zostaniesz na dłużej. Zapraszam do
                 odkrywania mojego świata fotografii i programowania!
               </p>
-              <h4>pozdrawiam!</h4>
+              <h4>pozdrawiam Piotrek!</h4>
+              <p>
+                {" "}
+                zapraszam do odzienia
+                <Link className={`next-link ${styles.link}`} href='/Gallery'>
+                  Galerii
+                </Link>
+                lub{" "}
+                <Link className={`next-link ${styles.link}`} href='/Contact'>
+                  Kontaktu
+                </Link>
+              </p>
             </Col>
             <Col md={12} lg={6}>
               <Image

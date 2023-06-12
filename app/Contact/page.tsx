@@ -69,11 +69,6 @@ const ContactForm = () => {
       <div className={styles.socials}>
         <SocialIcon
           className={`${styles.icon} icon`}
-          url='https://youtube.com/swistek00'
-          target='_blank'
-        />
-        <SocialIcon
-          className={`${styles.icon} icon`}
           url='https://www.facebook.com/Swistekk'
           target='_blank'
         />

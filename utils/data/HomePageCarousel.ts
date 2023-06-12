@@ -21,6 +21,10 @@ export const HomePageCarousel: homePageCarouselData = {
       url: "https://res.cloudinary.com/dftyei6oe/image/upload/v1686147097/mainCarousel001/IMG_5282-ANIMATION_zyi6rg.gif",
     },
     {
+      name: "dudek",
+      url: "https://res.cloudinary.com/dftyei6oe/image/upload/v1686571187/dudek_zqxf15.gif",
+    },
+    {
       name: "xxx",
       url: "https://res.cloudinary.com/dftyei6oe/image/upload/v1686147096/mainCarousel001/4R7A3242-znak_wodny-3_jvr9ze.jpg",
     },
