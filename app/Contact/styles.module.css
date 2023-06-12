@@ -27,3 +27,25 @@
   color: red;
   font-weight: 700;
 }
+.socials {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 250px;
+  left: 0;
+
+  /* background-color: #50009018; */
+}
+.icon {
+  margin: 30px;
+}
+@media (min-width: 500px) {
+  .socials {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+  }
+}

@@ -7,11 +7,12 @@ import styles from "./styles.module.css";
 import React from "react";
 import { useState } from "react";
 
-import Button from "./../../Components/Buttons/Button";
+import Button from "../../Components/Buttons/Button";
 import Input from "../../Components/Input/Input";
 import Recaptcha from "@/Components/ReCaptcha/v2/RecaptchaV2";
 import Spinner from "@/Components/Spinner/Spinner";
 import Success from "@/Components/Alerts/Success/Success";
+import { SocialIcon } from "react-social-icons";
 
 const ContactForm = () => {
   const router = useRouter();
@@ -65,6 +66,23 @@ const ContactForm = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.socials}>
+        <SocialIcon
+          className={`${styles.icon} icon`}
+          url='https://youtube.com/swistek00'
+          target='_blank'
+        />
+        <SocialIcon
+          className={`${styles.icon} icon`}
+          url='https://www.facebook.com/Swistekk'
+          target='_blank'
+        />
+        <SocialIcon
+          className={`${styles.icon} icon`}
+          url='https://www.instagram.com/swistoklik_/'
+          target='_blank'
+        />
+      </div>
       {status === "loading" && <Spinner />}
       {status === "success" && <Success />}
       <form
@@ -104,7 +122,7 @@ const ContactForm = () => {
           type='text'
           value={values.content}
           touched={touched.content}
-          errr={errors.content}
+          error={errors.content}
           onChangeTextArea={handleChange}
           textarea={true}
           disabled={status === "success"}

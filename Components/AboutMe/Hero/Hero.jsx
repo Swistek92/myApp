@@ -8,12 +8,7 @@ import styles from "./styles.module.css";
 import { motion } from "framer-motion";
 const Hero = () => {
   const [text, count] = useTypewriter({
-    words: [
-      "photography",
-      "website creator",
-      "software development",
-      "content creator",
-    ],
+    words: ["Fotograf", "Twórca stron internetowych", "programista", "kreator"],
     loop: true,
     delaySpeed: 500,
   });

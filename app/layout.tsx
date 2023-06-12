@@ -6,6 +6,7 @@ import "../sass/main.css";
 import logo from "../public/logo.png";
 import Image from "next/image";
 import { SessionProvider } from "next-auth/react";
+import Footer from "@/Components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,8 @@ export default function RootLayout({ children }: layoutProps) {
             <Image alt='logo' src={logo} width={100} height={100} />
           </div>
           <Header />
-          <div>{children}</div>
+          <div className='mainContent'>{children}</div>
+          <Footer />
         </SessionProvider>
       </body>
     </html>

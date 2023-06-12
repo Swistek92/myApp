@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 import CarouselMain from "@/Components/Carousels/CarouselMainPageComponent/CarouselMain";
+import HomePage from "@/Components/HomePage/HomePage";
 export default function Home() {
   const [show, setShow] = useState(false);
   function handleShow() {
@@ -14,7 +15,9 @@ export default function Home() {
         <CarouselMain />
       </div>
 
-      <h1 className='heading'>Hello green</h1>
+      <div>
+        <HomePage />
+      </div>
     </div>
   );
 }

@@ -47,14 +47,14 @@ const Header = () => {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-`}>
-                Offcanvas
+                Nawigacja
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className='justify-content-end flex-grow-1 pe-3'>
                 <Nav.Link as='span'>
                   <Link className={`next-link ${isHome && "active"}`} href='/'>
-                    Home
+                    Strona Główna
                   </Link>
                 </Nav.Link>
                 <Nav.Link as='span'>
@@ -62,7 +62,7 @@ const Header = () => {
                     className={`next-link ${isGarllery && "active"}`}
                     href='/Gallery'
                   >
-                    Gallery
+                    Galeria
                   </Link>
                 </Nav.Link>
                 <Nav.Link as='span'>
@@ -70,7 +70,7 @@ const Header = () => {
                     className={`next-link ${isAboutMe && "active"}`}
                     href='/AboutMe'
                   >
-                    AboutMe
+                    O mnie!
                   </Link>
                 </Nav.Link>
 
@@ -79,7 +79,7 @@ const Header = () => {
                     className={`next-link ${isContact && "active"}`}
                     href='/Contact'
                   >
-                    Contact
+                    Kontakt
                   </Link>
                 </Nav.Link>
               </Nav>

@@ -22,8 +22,8 @@ const page = () => {
         </section>
         {/* <section id='electricity' className={styles.snapEnd}>
           <Electricity />
-        </section>
-        <section id='software' className={styles.snapEnd}>
+        </section> */}
+        {/* <section id='software' className={styles.snapEnd}>
           <Software />
         </section> */}
       </div>

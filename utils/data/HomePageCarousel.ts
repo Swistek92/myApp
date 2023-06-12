@@ -44,5 +44,9 @@ export const HomePageCarousel: homePageCarouselData = {
       name: "bandytki",
       url: "https://res.cloudinary.com/dftyei6oe/image/upload/v1686147096/mainCarousel001/4R7A4320_g3o6ob.jpg",
     },
+    {
+      name: "makeup",
+      url: "https://res.cloudinary.com/dftyei6oe/image/upload/v1686566680/4R7A4096-2_fv6lmu.jpg",
+    },
   ],
 };

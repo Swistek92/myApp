@@ -35,13 +35,13 @@ const CarouselMain = () => {
             clickable: true,
           }}
           autoplay={{
-            delay: 1000,
+            delay: 500,
             disableOnInteraction: false,
           }}
-          loop={false}
+          loop={true}
           grabCursor={true}
-          navigation={true}
-          modules={[FreeMode, Autoplay, Navigation]}
+          navigation={false}
+          modules={[FreeMode, Autoplay]}
           className={styles.swiper}
           breakpoints={{
             500: {
