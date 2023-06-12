@@ -6,12 +6,22 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import Image from "next/image";
 import TextModal from "./spaModal/TextModal";
 import Link from "next/link";
-
+import FullScreenModal from "../Modals/FullScreenModal/Model";
 const HomePage = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModalSpa, setShowModalSpa] = useState(false);
+  const [showModalImg, setShowModalImg] = useState(false);
+
   return (
     <div>
-      <TextModal show={showModal} handleHide={() => setShowModal(false)} />
+      <TextModal
+        show={showModalSpa}
+        handleHide={() => setShowModalSpa(false)}
+      />
+      <FullScreenModal
+        img='https://res.cloudinary.com/dftyei6oe/image/upload/v1686566957/4R7A3187_zlpqlk.jpg'
+        handleHide={() => setShowModalImg(false)}
+        show={showModalImg}
+      />
       <div>
         <Container>
           <Row>
@@ -35,7 +45,10 @@ const HomePage = () => {
                 różnorodne zdjęcia, które opowiadają własne historie. Niech moje
                 obrazy poruszają Twoje emocje i otworzą Ci nowe perspektywy. Jak
                 również wyróbować projektu aplikacji webowej z wykorzystaniej
-                <span className={styles.spa} onClick={() => setShowModal(true)}>
+                <span
+                  className={styles.spa}
+                  onClick={() => setShowModalSpa(true)}
+                >
                   SPA(single page application)
                 </span>
                 , zwróć uwagę na to, że strona na której jesteś nigdy się nie
@@ -66,6 +79,7 @@ const HomePage = () => {
             </Col>
             <Col md={12} lg={6}>
               <Image
+                onClick={() => setShowModalImg(true)}
                 className={styles.img}
                 alt='asd'
                 width={1686}
