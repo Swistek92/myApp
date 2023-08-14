@@ -1,9 +1,20 @@
-.model {
-  background-color: $lightGrey;
-  // color: $dirtyWhite;
+// .fullscreenModal {
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
+// }
 
-  // transform: translate(-50%, -50%);
+.modal {
+  background-color: rgba(131, 133, 119, 0.37);
+  cursor: pointer;
 }
+.modal img {
+  margin-top: 5vh;
+  padding: 10px;
+  cursor: pointer;
+}
+
 .modal-content {
   background-color: transparent;
 }

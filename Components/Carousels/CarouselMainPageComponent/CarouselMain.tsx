@@ -54,7 +54,7 @@ const CarouselMain = () => {
         >
           {HomePageCarousel.imgs.map((img: imgHomeCarousel, i: number) => {
             return (
-              <SwiperSlide className={styles.swiperSlide}>
+              <SwiperSlide className={styles.swiperSlide} key={i}>
                 <Image
                   onClick={() => {
                     handleShow();

@@ -24,6 +24,7 @@ interface Props {
   handleHide?: Function;
   show: boolean;
   hoverEvent?: boolean;
+  className?: string;
 }
 
 const CarouselComponent = ({
@@ -32,6 +33,7 @@ const CarouselComponent = ({
   handleHide,
   show,
   hoverEvent,
+  className,
 }: Props) => {
   const handleVisibility = () => {
     if (!show && handleShow) {
@@ -55,7 +57,7 @@ const CarouselComponent = ({
         }}
         navigation={true}
         modules={[Autoplay, Navigation]}
-        className={styles.swiper}
+        className={`${styles.swiper} ${className}}`}
       >
         {imgs.map((e: slide, i: number) => {
           return (
@@ -64,8 +66,15 @@ const CarouselComponent = ({
               className={`${
                 hoverEvent ? styles.swiperSlideHover : styles.swiperSlide
               }`}
+              // className='imageCarousel'
             >
-              <Image alt='img' src={e.img} width={1000} height={1000} />
+              <img
+                className='imgFullScren'
+                alt='img'
+                src={e.img}
+                width={1000}
+                height={1000}
+              />
             </SwiperSlide>
           );
         })}

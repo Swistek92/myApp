@@ -18,37 +18,40 @@ interface Props {
 const FullScreenModal = ({ img, handleHide, show }: Props) => {
   if (typeof img === "string") {
     return (
-      <Modal
-        show={show}
-        className='model'
-        onClick={() => handleHide()}
-        fullscreen
-      >
-        <Image
-          alt='preview'
-          src={img}
-          width={1000}
-          height={1000}
-          className={styles.img}
-        />
-      </Modal>
+      <div>
+        <Modal
+          show={show}
+          className='model'
+          onClick={() => handleHide()}
+          fullscreen
+        >
+          <Image
+            alt='preview'
+            src={img}
+            width={1000}
+            height={1000}
+            className={styles.img}
+          />
+        </Modal>
+      </div>
     );
   }
   return (
-    <Modal
-      className='model'
-      show={show}
-      fullscreen
-      onClick={() => handleHide()}
-      centered
-    >
-      <CarouselComponent
-        imgs={img}
+    <div className='fullscreenModal'>
+      <Modal
         show={show}
-        handleHide={handleHide}
-        hoverEvent={false}
-      ></CarouselComponent>
-    </Modal>
+        className='modal'
+        fullscreen
+        onClick={() => handleHide()}
+      >
+        <CarouselComponent
+          imgs={img}
+          show={show}
+          handleHide={handleHide}
+          hoverEvent={false}
+        ></CarouselComponent>
+      </Modal>
+    </div>
   );
 };
 

@@ -14,11 +14,6 @@ function CardComponent({ imgs, title, describe }: props) {
   return (
     <Card className='card'>
       <Carousel imgs={imgs}></Carousel>
-      <Card.Body>
-        {title && <Card.Title>{title}</Card.Title>}
-        {describe && <Card.Text>{describe}</Card.Text>}
-        {/* <Button variant='primary'>contact me</Button> */}
-      </Card.Body>
     </Card>
   );
 }

@@ -3,28 +3,6 @@ import { title } from "process";
 
 export const GalleryCollection: cardsCollections = {
   cards: [
-    // {
-    //   imgs: [
-    //     {
-    //       img: "https://res.cloudinary.com/dftyei6oe/image/upload/v1683204692/8_kbwu4y.jpg",
-    //     },
-    //     {
-    //       img: "https://res.cloudinary.com/dftyei6oe/image/upload/v1683204696/2_kh0vo2.jpg",
-    //     },
-    //     {
-    //       img: "https://res.cloudinary.com/dftyei6oe/image/upload/v1683204691/7_b2j0gk.jpg",
-    //     },
-    //     {
-    //       img: "https://res.cloudinary.com/dftyei6oe/image/upload/v1683204692/5_csusey.jpg",
-    //     },
-    //     {
-    //       img: "https://res.cloudinary.com/dftyei6oe/image/upload/v1683204692/6_uhkhes.jpg",
-    //     },
-    //     {
-    //       img: "https://res.cloudinary.com/dftyei6oe/image/upload/v1672615934/IMG_6319_ybkxdy.jpg",
-    //     },
-    //   ],
-    // },
     {
       title: "klasojka",
       describe: "",

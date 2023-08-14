@@ -6,7 +6,12 @@
 @import "./components/Model/Model";
 @import "./components/Card/Card";
 @import "./components/AboutMe/aboutMe";
+@import "./components/Gallery/Gallery";
 @import "./grid";
+
+* {
+  transition: 0.5s ease-in-out;
+}
 a {
   text-decoration: none;
 }
