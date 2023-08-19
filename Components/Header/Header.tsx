@@ -46,20 +46,20 @@ const Header = () => {
             onClick={() => closeMenu()}
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-`}>
-                Nawigacja
+              <Offcanvas.Title className="offcanvasTitle" id={`offcanvasNavbarLabel-expand-`}>
+                Nawigacja Swistoklik.pl
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className='justify-content-end flex-grow-1 pe-3'>
                 <Nav.Link as='span'>
-                  <Link className={`next-link ${isHome && "active"}`} href='/'>
+                  <Link className={`next-link ${isHome && "active" } naviagtionLink`} href='/'>
                     Strona Główna
                   </Link>
                 </Nav.Link>
                 <Nav.Link as='span'>
                   <Link
-                    className={`next-link ${isGarllery && "active"}`}
+                    className={`next-link ${isGarllery && "active " } naviagtionLink`}
                     href='/Gallery'
                   >
                     Galeria
@@ -67,7 +67,7 @@ const Header = () => {
                 </Nav.Link>
                 <Nav.Link as='span'>
                   <Link
-                    className={`next-link ${isAboutMe && "active"}`}
+                    className={`next-link ${isAboutMe && "active " } naviagtionLink`}
                     href='/AboutMe'
                   >
                     O mnie!
@@ -76,7 +76,7 @@ const Header = () => {
 
                 <Nav.Link as='span'>
                   <Link
-                    className={`next-link ${isContact && "active"}`}
+                    className={`next-link ${isContact && "active "} naviagtionLink`}
                     href='/Contact'
                   >
                     Kontakt

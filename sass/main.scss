@@ -9,11 +9,56 @@
 @import "./components/Gallery/Gallery";
 @import "./grid";
 
+@font-face {
+  font-family: console;
+  src: url('../public/font.ttf');
+}
+
 * {
   transition: 0.5s ease-in-out;
+  font-family:'console' ;
+  color: '#fd0036';
+  cursor: crosshair;
 }
 a {
   text-decoration: none;
+}
+p{
+  color:#e4e3e3;
+  font-weight: 500;
+  font-size: medium;
+}
+
+h4{
+  color:#e4e3e3;
+
+}
+.next-link {
+  color: inherit;
+  border: inherit;
+  text-decoration: inherit;
+}
+
+
+.mainPageLink{
+  color:#9b0ad8;
+  font-size: large;
+  letter-spacing: 2px;
+  padding: 5px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #9b0ad8;
+  cursor: pointer;
+}
+
+.mainPageLink:hover{
+  transform: scale(1.2);
+  color: #02ff20;
+}
+
+
+
+.mainPageLink:hover{
+  transform: scale(1.2);
 }
 .agent {
   height: 100vh;
@@ -26,23 +71,25 @@ a {
 
 body {
   padding-top: 75px;
-  background-color: #505050;
+  background-color: #1e1e1e;
   transition: all 1s;
 }
 .mainContent {
   padding: 0;
   margin-bottom: 30px;
 }
-.next-link {
-  color: inherit;
-  border: inherit;
-  text-decoration: inherit;
-}
+
+
+
 .active {
   font-weight: 800;
   text-decoration: underline;
-  color: rgb(73, 62, 62);
+  color: #d7983c;
 }
+.mainHeading{
+  color: #d7983c
+}
+
 
 .next-link:hover {
   color: inherit;
@@ -83,16 +130,15 @@ body {
 //   font-size: 1rem;
 // }
 
+
 @media only screen and (min-width: 600px) {
-  .logo {
-  }
+
   .heading {
     font-size: 1.5rem;
   }
 }
 @media only screen and (min-width: 900px) {
-  .logo {
-  }
+
   .heading {
     font-size: 2rem;
   }

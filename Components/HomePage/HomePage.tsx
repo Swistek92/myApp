@@ -26,7 +26,7 @@ const HomePage = () => {
         <Container>
           <Row>
             <Col md={12} lg={6}>
-              <h1> &lt; &lt;Hello W0rld! &gt; &gt; </h1>
+              <h1 className="mainHeading" > &lt; &lt;Hello W0rld! &gt; &gt; </h1>
               <p>
                 Jestem tutaj, aby podzielić się z Tobą moją pasją do fotografii
                 i programowania. Jestem fotografem z zamiłowania, który uwielbia
@@ -46,7 +46,7 @@ const HomePage = () => {
                 obrazy poruszają Twoje emocje i otworzą Ci nowe perspektywy. Jak
                 również wyróbować projektu aplikacji webowej z wykorzystaniej
                 <span
-                  className={styles.spa}
+                  className='mainPageLink'
                   onClick={() => setShowModalSpa(true)}
                 >
                   SPA(single page application)
@@ -68,11 +68,11 @@ const HomePage = () => {
               <p>
                 {" "}
                 zapraszam do odzienia
-                <Link className={`next-link ${styles.link}`} href='/Gallery'>
+                <Link className={` mainPageLink`} href='/Gallery'>
                   Galerii
                 </Link>
                 lub{" "}
-                <Link className={`next-link ${styles.link}`} href='/Contact'>
+                <Link className={` mainPageLink`} href='/Contact'>
                   Kontaktu
                 </Link>
               </p>
